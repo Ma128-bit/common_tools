@@ -107,7 +107,7 @@ class ModelHandler:
         #print("self.data", self.data)
         #print("Total number of events:", len(self.data[self.event_branch_name]))
 
-    def apply_selection(self, config, selection_name='selections_1'):
+    def apply_selection(self, config, selection_name='selections_1', mask2 = None):
         print("Initial length of data: ", (self.data).shape[0])
         with open(config, 'r') as file:
             json_file = json.load(file)
@@ -132,6 +132,10 @@ class ModelHandler:
 
         if selection_name.endswith('!'):
             mask = ~mask
+        
+        if mask2!= None:
+            mask = mask & mask2
+        
         # Applica la maschera ai dati
         selected_data = self.data[mask]
         selected_data = selected_data.reset_index(drop=True)
