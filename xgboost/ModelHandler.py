@@ -112,6 +112,7 @@ class ModelHandler:
         with open(config, 'r') as file:
             json_file = json.load(file)
         selections = json_file[selection_name]
+        print(selections)
         mask = pd.Series(True, index=(self.data).index)
         for selection in selections:
             print("selection",selection)
