@@ -18,4 +18,4 @@ ModelHandler.py is a wrapper around XGBoost. All you need to do is create a json
 * `data_path` : Path where the datasets are saved
 * `files` : List of datasets in data_path
 
-An example of configuration file is **`config.json`**
+An example of configuration file is **`config/config.json`**
