@@ -1,7 +1,7 @@
 import argparse
-from ModelHandler_v3 import *
+from ModelHandler import *
 
-class MuonMVA(ModelHandler_v3):
+class MuonMVA(ModelHandler):
     pass
 
 def train_model(files, name, config, index=None, category=None, condor=False):
