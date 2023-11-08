@@ -23,8 +23,16 @@ def train_model(files, name, config, index=None, category=None, condor=False):
         print("Category ", category, " selections: ", category_key)
         for key in category_key:
             if "_sig_" in key:
-                
-            model.apply_selection(config, key)
+                mask2 = model.data[model.Y_column]
+                mask2 = mask2.apply(lambda x: x != model.BDT_0) #sig is true and bkg is false
+                mask2 = ~mask2
+                model.apply_selection(config, key, mask2)
+            elif "_bkg_" in key:
+                mask2 = model.data[model.Y_column]
+                mask2 = mask2.apply(lambda x: x != model.BDT_0) #sig is true and bkg is false
+                model.apply_selection(config, key, mask2)
+            else:
+                model.apply_selection(config, key)
     
     if not os.path.exists(output_path):
         subprocess.call("mkdir -p %s" % output_path, shell=True)
