@@ -22,6 +22,19 @@ ModelHandler.py is a wrapper around XGBoost. All you need to do is create a json
 
 An example of configuration file is **`config/config.json`**
 
+### selections_ instructions:
+Selections should have this shape:
+```=python
+    "selections_1": [
+        {"highPurity": [">", 0]},
+        {"pt": [">", 2]},
+        {"eta": ["<", 2.5]},
+        {"eta": [">", -2.5]},
+        {"isGlobal": ["==", true], "isTracker": ["==", true]}
+    ],
+```
+
+
 ## Training
 The script **`train_BDT.py`** allows for the training of the model. It has 3 inputs:
 
