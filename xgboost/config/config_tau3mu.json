@@ -69,15 +69,28 @@
         {"colsample_bytree": 1.0},
         {"tree_method": "hist"}
     ],
-    "Cat_A_1": [
-        {"dimu_OS1": [">", 1.044], "dimu_OS1": ["<", 0.994]},
-        {"dimu_OS2": [">", 1.044], "dimu_OS2": ["<", 0.994]},
-        {"dimu_OS1": [">", 0.79], "dimu_OS1": ["<", 0.77]},
-        {"dimu_OS2": [">", 0.79], "dimu_OS2": ["<", 0.77]},
+    "Cat_A_1!": [
+        {"dimu_OS1": ["<", 1.044]},
+        {"dimu_OS1": [">", 0.994]}
+    ],
+    "Cat_A_2!": [
+        {"dimu_OS2": ["<", 1.044]},
+        {"dimu_OS2": [">", 0.994]}
+    ],
+    "Cat_A_3!": [
+        {"dimu_OS1": ["<", 0.79]},
+        {"dimu_OS1": [">", 0.77]}
+    ],
+    "Cat_A_4!": [
+        {"dimu_OS2": ["<", 0.79]},
+        {"dimu_OS2": [">", 0.77]}
+    ],
+    "Cat_A_5": [
         {"category": ["==", 0]}
     ],
-    "Cat_A_sig_2": [
-        {"tripletMass": [">", 1.801], "tripletMass": ["<", 1.753]}
+    "Cat_A_sig_6!": [
+        {"tripletMass": ["<", 1.801]},
+        {"tripletMass": [">", 1.753]}
     ],
     "tree_name": "FinalTree",
     "output_path": "results/BDT",
