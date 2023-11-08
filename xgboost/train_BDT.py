@@ -13,7 +13,7 @@ def train_model(files, name, config, index=None, category=None, condor=False):
     number_of_splits = json_file['number_of_splits']
     output_path = json_file['output_path']
     selections_keys = [key for key in json_file.keys() if key.startswith("selections_")]
-    print("selections_keys: ",selections_keys)
+    print("pre-selections: ",selections_keys)
 
     for key in selections_keys:
         model.apply_selection(config, key)
