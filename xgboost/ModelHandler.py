@@ -114,8 +114,10 @@ class ModelHandler:
         selections = json_file[selection_name]
         mask = pd.Series(True, index=(self.data).index)
         for selection in selections:
+            print("selection",selection)
             group_mask = pd.Series(False, index=(self.data).index)
             for key, value in selection.items():
+                print("key, value", key, value)
                 operator = value[0]
                 threshold = float(value[1])
                 #print(operator, " ",threshold)
