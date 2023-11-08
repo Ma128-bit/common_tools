@@ -35,7 +35,7 @@ Each selection have this shape:
     {"isGlobal": ["==", true], "isTracker": ["!=", true]}
 ],
 ```
-At this moment, only >, <, == and != operators are supported. 
+++Note:++ At this moment, only >, <, == and != operators are supported. 
 
 Different rows (example `{"highPurity": [">", 0]}` and `{"pt": [">", 2]}`) are in AND, while element on the same row (like: `{"isGlobal": ["==", true], "isTracker": ["!=", true]}`) are in OR.
 
