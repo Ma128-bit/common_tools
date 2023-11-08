@@ -20,18 +20,16 @@ def train_model(files, name, config, index=None, category=None, condor=False):
     
     if category!=None:
         category_key = [key for key in json_file.keys() if key.startswith(category)]
-        print("Category ", category, " selections: ", category_key)
+        print(category, " selections: ", category_key)
         for key in category_key:
             if "_sig_" in key:
                 mask2 = model.data[model.Y_column]
                 mask2 = mask2.apply(lambda x: x != model.BDT_0) #sig is true and bkg is false
                 mask2 = ~mask2
-                print(mask2)
                 model.apply_selection(config, key, mask2)
             elif "_bkg_" in key:
                 mask2 = model.data[model.Y_column]
                 mask2 = mask2.apply(lambda x: x != model.BDT_0) #sig is true and bkg is false
-                print(mask2)
                 model.apply_selection(config, key, mask2)
             else:
                 model.apply_selection(config, key)
