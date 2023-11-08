@@ -105,20 +105,17 @@ class ModelHandler:
         #print("datasets[0]", datasets[0])
         self.data = self.merge_data(datasets)
         print("Initial length of data: ", (self.data).shape[0])
-        print("self.data", self.data["isMC"])
+        #print("self.data", self.data["isMC"])
         #print("Total number of events:", len(self.data[self.event_branch_name]))
 
     def apply_selection(self, config, selection_name='selections_1', mask2 = None):
         with open(config, 'r') as file:
             json_file = json.load(file)
         selections = json_file[selection_name]
-        print(selections)
         mask = pd.Series(True, index=(self.data).index)
         for selection in selections:
-            print("selection",selection)
             group_mask = pd.Series(False, index=(self.data).index)
             for key, value in selection.items():
-                print("key, value", key, value)
                 operator = value[0]
                 threshold = float(value[1])
                 #print(operator, " ",threshold)
