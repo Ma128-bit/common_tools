@@ -105,7 +105,7 @@ class ModelHandler:
         #print("datasets[0]", datasets[0])
         self.data = self.merge_data(datasets)
         print("Initial length of data: ", (self.data).shape[0])
-        #print("self.data", self.data)
+        print("self.data", self.data["isMC"])
         #print("Total number of events:", len(self.data[self.event_branch_name]))
 
     def apply_selection(self, config, selection_name='selections_1', mask2 = None):
