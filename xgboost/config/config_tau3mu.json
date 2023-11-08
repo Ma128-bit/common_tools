@@ -88,7 +88,7 @@
     "Cat_A_5": [
         {"category": ["==", 0]}
     ],
-    "Cat_A_bkg_6!": [
+    "Cat_A_6!": [
         {"tripletMass": ["<", 1.801]},
         {"tripletMass": [">", 1.753]}
     ],
