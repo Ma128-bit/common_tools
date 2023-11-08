@@ -57,6 +57,12 @@
     "selections_1": [
         {"Ptmu1": [">", 0]}
     ],
+    "selections_2": [
+        {"Ptmu1": [">", 0]}
+    ],
+    "selections_4": [
+        {"Ptmu1": [">", 0]}
+    ],
     "xgb_parameters": [
         {"objective": "binary:logistic"},
         {"eta": 0.3},
