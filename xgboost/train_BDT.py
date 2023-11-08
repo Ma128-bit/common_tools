@@ -22,6 +22,8 @@ def train_model(files, name, config, index=None, category=None, condor=False):
         category_key = [key for key in json_file.keys() if key.startswith(category)]
         print("Category ", category, " selections: ", category_key)
         for key in category_key:
+            if "_sig_" in key:
+                
             model.apply_selection(config, key)
     
     if not os.path.exists(output_path):
