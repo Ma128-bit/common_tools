@@ -25,13 +25,13 @@ An example of configuration file is **`config/config.json`**
 ### selections_ instructions:
 Selections should have this shape:
 ```python=
-    "selections_1": [
-        {"highPurity": [">", 0]},
-        {"pt": [">", 2]},
-        {"eta": ["<", 2.5]},
-        {"eta": [">", -2.5]},
-        {"isGlobal": ["==", true], "isTracker": ["==", true]}
-    ],
+"selections_1": [
+    {"highPurity": [">", 0]},
+    {"pt": [">", 2]},
+    {"eta": ["<", 2.5]},
+    {"eta": [">", -2.5]},
+    {"isGlobal": ["==", true], "isTracker": ["!=", true]}
+],
 ```
 
 
