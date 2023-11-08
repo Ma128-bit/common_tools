@@ -26,7 +26,7 @@ An example of configuration file is **`config/config.json`**
 The script **`train_BDT.py`** allows for the training of the model. It has 3 inputs:
 python3 train_BDT.py --config [config_file] --index [kfold_number] --category [category_name]
 :::info
-[config_file]: **Mandatory**  Name of the configuration file (for example **`config/config.json`**)
-[kfold_number]: **Optional**  ID of the fold (for example if `number_of_splits` in the configuration file is 5, kfold_number can be chosen between 0 and 4). If the parameter is not inserted the training will be performed on all folds.
-[category_name]: **Optional** Is used to train the mode on a single category. ...
+* [config_file]: **Mandatory**  Name of the configuration file (for example **`config/config.json`**)
+* [kfold_number]: **Optional**  ID of the fold (for example if `number_of_splits` in the configuration file is 5, kfold_number can be chosen between 0 and 4). If the parameter is not inserted the training will be performed on all folds.
+* [category_name]: **Optional** Is used to train the mode on a single category. ...
 :::
