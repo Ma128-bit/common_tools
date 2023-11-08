@@ -17,7 +17,7 @@ import random
 import ROOT
 from ROOT import *
 
-class ModelHandler_v3:
+class ModelHandler:
     """XGBoost Model training and validation"""
     def __init__(self, config):
         with open(config, 'r') as file:
