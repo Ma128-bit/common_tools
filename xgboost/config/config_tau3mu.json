@@ -109,7 +109,7 @@
         {"dimu_OS2": [">", 0.77]}
     ],
     "Cat_B_5": [
-        {"category": ["==", 1}
+        {"category": ["==", 1]}
     ],
     "Cat_B_bkg_6!": [
         {"tripletMass": ["<", 1.815]},
