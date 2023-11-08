@@ -24,7 +24,7 @@ An example of configuration file is **`config/config.json`**
 
 ### selections_ instructions:
 Selections should have this shape:
-```=python
+```python=
     "selections_1": [
         {"highPurity": [">", 0]},
         {"pt": [">", 2]},
