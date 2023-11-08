@@ -130,6 +130,8 @@ class ModelHandler:
                 #print(group_mask)
             mask = mask & group_mask  # AND
 
+        if selection_name.endswith('!'):
+            mask = ~mask
         # Applica la maschera ai dati
         selected_data = self.data[mask]
         selected_data = selected_data.reset_index(drop=True)
