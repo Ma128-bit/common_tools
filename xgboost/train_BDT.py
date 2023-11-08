@@ -19,8 +19,10 @@ def train_model(files, name, config, index=None, category=None, condor=False):
         model.apply_selection(config, key)
     
     if category!=None:
-        model.apply_selection(config, category+"_sig")
-        model.apply_selection(config, category+"_bkg")
+        category_key = [key for key in json_file.keys() if key.startswith(category)]
+        print("Category ", category, " selections: ", category_key)
+        for key in category_key:
+            model.apply_selection(config, key)
     
     if not os.path.exists(output_path):
         subprocess.call("mkdir -p %s" % output_path, shell=True)
