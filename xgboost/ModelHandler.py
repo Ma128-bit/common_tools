@@ -101,7 +101,7 @@ class ModelHandler:
                 if batch_index%event_sel==0:
                     datasets.append(self.load_data(f.decode()))
                 batch_index += 1
-        print("out of loop")
+        print("Done!")
         #print("datasets[0]", datasets[0])
         self.data = self.merge_data(datasets)
         #print("self.data", self.data)
