@@ -80,7 +80,7 @@
     "do_weight": true,
     "weight_column": "weight_MC2",
     "Name": "Run2022",
-    "data_path": "/lustrehome/mbuonsante/Tau_3mu/xgboost/CMSSW_13_0_13/src/xgboost",
+    "data_path": "/lustrehome/mbuonsante/Tau_3mu/xgboost/CMSSW_13_0_13/src/xgboost/",
     "files": [
         "Files/"
     ]
