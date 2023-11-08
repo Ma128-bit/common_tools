@@ -47,11 +47,11 @@ Categories are treated as selections. For example, if you want a category called
     (like selections_1 in example before)
 ]
 ```
-All the selections that starts with Cat_A will be applied.
+All the selections that starts with `Cat_A` will be applied.
 
 There are also special selections: 
-* If a selection, that starts with Cat_A, contains `_sig_` (like `Cat_A_sig_2`) it is applied only on signal data
-* If a selection, that starts with Cat_A, contains `_bkg_` (like `Cat_A_bkg_3`) it is applied only on bkg data
+* If a selection, that starts with `Cat_A`, contains `_sig_` (like `Cat_A_sig_2`) it is applied only on signal data
+* If a selection, that starts with `Cat_A`, contains `_bkg_` (like `Cat_A_bkg_3`) it is applied only on bkg data
 
 ## Training
 The script **`train_BDT.py`** allows for the training of the model. It has 3 inputs:
