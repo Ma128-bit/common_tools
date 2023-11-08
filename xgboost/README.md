@@ -1,4 +1,4 @@
-The code is a modified version of the one used in the Bmm5 analysis https://github.com/drkovalskyi/Bmm5/blob/master/MVA/ModelHandler.py 
+The code is a modified version of the one used in the [Bmm5 analysis]([https://github.com/rmanzoni/Bmmm/tree/main](https://github.com/drkovalskyi/Bmm5/blob/master/MVA/ModelHandler.py))  
 
 ModelHandler.py is a wrapper around XGBoost. All you need to do is create a json configuration file that contains the following information:
 * `feature_names` : name of the branches of the tree used for the BDT training
