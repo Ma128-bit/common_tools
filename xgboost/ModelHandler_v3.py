@@ -29,14 +29,14 @@ class ModelHandler_v3:
         self.do_weight = json_file['do_weight']
         self.weight_column = json_file['weight_column']
         self.tree_name = json_file['tree_name']
-        self.validation_column = json_file['validation_column']
+        self.Y_column = json_file['Y_column']
         self.BDT_0 = json_file['BDT_0']
         self.data = None #ALL data
         self.train_data = None #Data with all the branches
         self.test_data = None
         self.x_train = None # Data for train and test with only feature_names branches for x
         self.x_test  = None
-        self.y_train = None # Data for train and test with only validation_column branches for x
+        self.y_train = None # Data for train and test with only Y_column branches for x
         self.y_test  = None
         self.model = None
         self.roc_bkg_min = 0.2
@@ -147,8 +147,8 @@ class ModelHandler_v3:
         
         self.x_train = self.train_data[self.features]
         self.x_test = self.test_data[self.features]
-        self.y_train = self.train_data[self.validation_column] #This is a pd series
-        self.y_test = self.test_data[self.validation_column]
+        self.y_train = self.train_data[self.Y_column] #This is a pd series
+        self.y_test = self.test_data[self.Y_column]
         
         self.train_weights = self.train_data[self.weight_column]
         self.test_weights = self.test_data[self.weight_column]

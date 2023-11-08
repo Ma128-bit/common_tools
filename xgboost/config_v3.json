@@ -6,8 +6,8 @@
             "output_path": "Path for the output",
             "selections_1": "Use 1 for True and 0 for False, the object in the same row are in OR differend row AND. It is possible to add other selections, for example selections_2, and call the function apply_selection(config_file, 'selections_2')",
             "event_fraction": "Is the fraction of original data files which are read",
-            "validation_column": "Is the Y set",
-            "BDT_0": "Is the value of validation_column associated to the 0 in the training, the values different from BDT_0 will be 1"
+            "Y_column": "Is the Y set",
+            "BDT_0": "Is the value of Y_column associated to the 0 in the training, the values different from BDT_0 will be 1"
     },
     "feature_names": [
         "trkValidFrac",
@@ -42,7 +42,7 @@
         "evt",
         "staRelChi2"
     ],
-    "validation_column": "sim_type",
+    "Y_column": "sim_type",
     "BDT_0":1,
     "selections_1": [
         {"highPurity": [">", 0]},
