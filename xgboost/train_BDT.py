@@ -7,16 +7,20 @@ class MuonMVA(ModelHandler):
 def train_model(files, name, config, index=None, category=None, condor=False):
     model = MuonMVA(config)
     model.load_datasets(files, config)
-    model.apply_selection(config)
-    
-    if category!=None:
-        model.apply_selection(config, category+"_sig")
-        model.apply_selection(config, category+"_bkg")
-    
+
     with open(config, 'r') as file:
         json_file = json.load(file)
     number_of_splits = json_file['number_of_splits']
     output_path = json_file['output_path']
+    selections_keys = [key for key in data.keys() if key.startswith("selections_")]
+    print("selections_keys: ",selections_keys)
+
+    for key in selections_keys:
+        model.apply_selection(config, key)
+    
+    if category!=None:
+        model.apply_selection(config, category+"_sig")
+        model.apply_selection(config, category+"_bkg")
     
     if not os.path.exists(output_path):
         subprocess.call("mkdir -p %s" % output_path, shell=True)
