@@ -23,7 +23,7 @@ ModelHandler.py is a wrapper around XGBoost. All you need to do is create a json
 An example of configuration file is **`config/config.json`**
 
 ### Instructions for selections_ :
-The code automatically run all the pre-selections selections_* listed in the configuration file.
+The code automatically run all the pre-selections `selections_*` listed in the configuration file.
 
 Each selection have this shape:
 ```python=
