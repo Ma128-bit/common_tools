@@ -33,13 +33,21 @@ Each selection have this shape:
     {"eta": ["<", 2.5]},
     {"eta": [">", -2.5]},
     {"isGlobal": ["==", true], "isTracker": ["!=", true]}
-],
+]
 ```
 Notes: 
 * At this moment, only >, <, == and != operators are supported. 
 * Different rows (example `{"highPurity": [">", 0]}` and `{"pt": [">", 2]}`) are in AND, while element on the same row (like: `{"isGlobal": ["==", true], "isTracker": ["!=", true]}`) are in OR.
 * It is also possible to implement the NOT of an entire selection writing "!" at the end of the name: `selections_1!`
 
+### Instructions for splitting in categories :
+Categories are treated as selections. For example, if you want a category called "Cat_A", you have to add selections like:
+```python=
+"Cat_A_1": [
+    (like selections_1 in example before)
+]
+```
+All the selections that starts with Cat_A will be applied.
 
 ## Training
 The script **`train_BDT.py`** allows for the training of the model. It has 3 inputs:
@@ -48,5 +56,5 @@ The script **`train_BDT.py`** allows for the training of the model. It has 3 inp
 
 * [config_file]: **Mandatory**  Name of the configuration file (for example **`config/config.json`**)
 * [kfold_number]: **Optional**  ID of the fold (for example if `number_of_splits` in the configuration file is 5, kfold_number can be chosen between 0 and 4). If the parameter is not inserted the training will be performed on all folds.
-* [category_name]: **Optional** Is used to train the mode on a single category. ...
+* [category_name]: **Optional** Is used to train the mode on a single category. When you pass this all the selections that starts with [category_name] will be applied.
 
