@@ -26,12 +26,12 @@ def train_model(files, name, config, index=None, category=None, condor=False):
                 mask2 = model.data[model.Y_column]
                 mask2 = mask2.apply(lambda x: x != model.BDT_0) #sig is true and bkg is false
                 print(mask2)
-                mask2 = ~mask2
-                print(mask2)
                 model.apply_selection(config, key, mask2)
             elif "_bkg_" in key:
                 mask2 = model.data[model.Y_column]
                 mask2 = mask2.apply(lambda x: x != model.BDT_0) #sig is true and bkg is false
+                mask2 = ~mask2
+                print(mask2)
                 model.apply_selection(config, key, mask2)
             else:
                 model.apply_selection(config, key)
