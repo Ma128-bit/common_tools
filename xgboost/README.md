@@ -1,4 +1,4 @@
-# XGBoost - Boosted decision trees
+# XGBoost - Boosted Decision Trees
 Note: The code is a modified version of the one used in the [Bmm5 analysis](https://github.com/drkovalskyi/Bmm5/blob/master/MVA/ModelHandler.py)
 
 ## Configuration file 
