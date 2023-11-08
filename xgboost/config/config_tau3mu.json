@@ -92,6 +92,52 @@
         {"tripletMass": ["<", 1.801]},
         {"tripletMass": [">", 1.753]}
     ],
+    "Cat_B_1!": [
+        {"dimu_OS1": ["<", 1.053]},
+        {"dimu_OS1": [">", 0.985]}
+    ],
+    "Cat_B_2!": [
+        {"dimu_OS2": ["<", 1.053]},
+        {"dimu_OS2": [">", 0.985]}
+    ],
+    "Cat_B_3!": [
+        {"dimu_OS1": ["<", 0.79]},
+        {"dimu_OS1": [">", 0.77]}
+    ],
+    "Cat_B_4!": [
+        {"dimu_OS2": ["<", 0.79]},
+        {"dimu_OS2": [">", 0.77]}
+    ],
+    "Cat_B_5": [
+        {"category": ["==", 1}
+    ],
+    "Cat_B_bkg_6!": [
+        {"tripletMass": ["<", 1.815]},
+        {"tripletMass": [">", 1.739]}
+    ],
+    "Cat_C_1!": [
+        {"dimu_OS1": ["<", 1.064]},
+        {"dimu_OS1": [">", 0.974]}
+    ],
+    "Cat_C_2!": [
+        {"dimu_OS2": ["<", 1.064]},
+        {"dimu_OS2": [">", 0.974]}
+    ],
+    "Cat_C_3!": [
+        {"dimu_OS1": ["<", 0.79]},
+        {"dimu_OS1": [">", 0.77]}
+    ],
+    "Cat_C_4!": [
+        {"dimu_OS2": ["<", 0.79]},
+        {"dimu_OS2": [">", 0.77]}
+    ],
+    "Cat_C_5": [
+        {"category": ["==", 2]}
+    ],
+    "Cat_C_bkg_6!": [
+        {"tripletMass": ["<", 1.827]},
+        {"tripletMass": [">", 1.727]}
+    ],
     "tree_name": "FinalTree",
     "output_path": "results/BDT",
     "event_fraction": 1,
