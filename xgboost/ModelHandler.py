@@ -152,14 +152,12 @@ class ModelHandler:
         
         self.train_weights = self.train_data[self.weight_column]
         self.test_weights = self.test_data[self.weight_column]
-        print(self.train_weights)
+        #print(self.train_weights)
         
         #Rimuovere dopo il test:
         self.train_weights = self.train_weights.clip(upper=1)
         self.test_weights = self.test_weights.clip(upper=1)
-        
-        print("ok")
-        
+                
         self.y_train = self.y_train.apply(lambda x: x != self.BDT_0)
         self.y_test = self.y_test.apply(lambda x: x != self.BDT_0)
         
