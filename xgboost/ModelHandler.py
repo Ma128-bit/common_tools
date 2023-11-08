@@ -137,7 +137,7 @@ class ModelHandler:
             mask = ~mask
         
         if mask2 is not None:
-            mask = mask & mask2
+            mask = mask | mask2
         
         # Applica la maschera ai dati
         selected_data = self.data[mask]
