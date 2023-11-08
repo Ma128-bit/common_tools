@@ -1,6 +1,6 @@
 The code is a modified version of the one used in the Bmm5 analysis https://github.com/drkovalskyi/Bmm5/blob/master/MVA/ModelHandler.py 
 
-ModelHandler.py is a wrapper around XGBoost. All you need to do is create a configuration file that contains the following information:
+ModelHandler.py is a wrapper around XGBoost. All you need to do is create a json configuration file that contains the following information:
 * `feature_names` : name of the branches of the tree used for the BDT training
 * `other_branches` : other branches that you keed (for Y set, selections, weight, etc...)
 * `Y_column` : The name of the branch used to create the Y set
@@ -18,3 +18,4 @@ ModelHandler.py is a wrapper around XGBoost. All you need to do is create a conf
 * `data_path` : Path where the datasets are saved
 * `files` : List of datasets in data_path
 
+An example of configuration file is **`config.json`**
