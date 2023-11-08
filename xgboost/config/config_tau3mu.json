@@ -76,9 +76,6 @@
         {"dimu_OS2": [">", 0.79], "dimu_OS2": ["<", 0.77]},
         {"category": ["==", 0]}
     ],
-    "Cat_A_sig_2": [
-        {"tripletMass": [">", 1.801], "tripletMass": ["<", 1.753]}
-    ],
     "tree_name": "FinalTree",
     "output_path": "results/BDT",
     "event_fraction": 1,
