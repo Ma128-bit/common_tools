@@ -12,7 +12,7 @@ def train_model(files, name, config, index=None, category=None, condor=False):
         json_file = json.load(file)
     number_of_splits = json_file['number_of_splits']
     output_path = json_file['output_path']
-    selections_keys = [key for key in data.keys() if key.startswith("selections_")]
+    selections_keys = [key for key in json_file.keys() if key.startswith("selections_")]
     print("selections_keys: ",selections_keys)
 
     for key in selections_keys:
