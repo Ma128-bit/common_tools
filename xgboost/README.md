@@ -5,7 +5,7 @@ ModelHandler.py is a wrapper around XGBoost. All you need to do is create a conf
 * `other_branches` : other branches that you keed (for Y set, selections, weight, etc...)
 * `Y_column` : The name of the branch used to create the Y set
 * `BDT_0` : is the value of Y_column associated to 0 in the Y set, values of Y_column different from BDT_0 are set to 1 in the Y set
-* `selections_*` : List of selections (* = 1,2,3,...)
+* `selections_*` : List of pre-selections (* = 1,2,3,...)
 * `xgb_parameters` : Parameter of the XGBoost model
 * `tree_name` : Name of the input tree in the root files
 * `output_path` : Output path for saving results
