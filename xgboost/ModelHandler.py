@@ -133,7 +133,7 @@ class ModelHandler:
         if selection_name.endswith('!'):
             mask = ~mask
         
-        if mask2!= None:
+        if mask2 is not None:
             mask = mask & mask2
         
         # Applica la maschera ai dati
