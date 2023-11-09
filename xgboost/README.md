@@ -55,6 +55,8 @@ There are also special selections:
 * If a selection, that starts with `Cat_A`, contains `_sig_` (like `Cat_A_sig_2`) it is applied only on signal data
 * If a selection, that starts with `Cat_A`, contains `_bkg_` (like `Cat_A_bkg_3`) it is applied only on bkg data
 
+NOTE: Please do not use strange characters in category names (especially '/' and '#'), possibly only use letters and '_'
+
 ## Training
 The script **`train_BDT.py`** allows for the training of the model. It has 3 inputs:
 
