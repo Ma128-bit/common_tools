@@ -4,7 +4,7 @@
             "tree_name": "Name of the tree",
             "event_branch_name": "Name of the branch with the event index",
             "output_path": "Path for the output",
-            "selections_1": "Use 1 for True and 0 for False, the object in the same row are in OR differend row AND. It is possible to add other selections, for example selections_2, and call the function apply_selection(config_file, 'selections_2')",
+            "selections_1": "",
             "event_fraction": "Is the fraction of original data files which are read",
             "Y_column": "Is the Y set",
             "BDT_0": "Is the value of Y_column associated to the 0 in the training, the values different from BDT_0 will be 1"
