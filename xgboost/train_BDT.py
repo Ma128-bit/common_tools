@@ -39,7 +39,7 @@ def train_model(files, name, config, index=None, category=None, condor=False):
         subprocess.call("mkdir -p %s" % output_path_new, shell=True)
 
     if not condor:
-        config_out = "%s/%s-%s_config.json" % (output_path_new, name, date)
+        config_out = "%s/%s_config.json" % (output_path_new, name)
         subprocess.run(["cp", config, config_out])
     
     if index==None:
