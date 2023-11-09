@@ -1,5 +1,5 @@
-executable = launch_training.sh
+executable = PATH/launch_training.sh
 arguments = $(Process)
-output  = log/Job_$(Cluster)_$(Process).out
-error   = log/Job_$(Cluster)_$(Process).err
-log     = log/Job_$(Cluster)_$(Process).log
+output  = PATH/log/Job_$(Cluster)_$(Process).out
+error   = PATH/log/Job_$(Cluster)_$(Process).err
+log     = PATH/log/Job_$(Cluster)_$(Process).log
