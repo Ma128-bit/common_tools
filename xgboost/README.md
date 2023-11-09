@@ -66,3 +66,9 @@ The script **`train_BDT.py`** allows for the training of the model. It has 3 inp
 * [kfold_number]: **Optional**  ID of the fold (for example if `number_of_splits` in the configuration file is 5, kfold_number can be chosen between 0 and 4). If the parameter is not inserted the training will be performed on all folds.
 * [category_name]: **Optional** Is used to train the mode on a category. When you pass this all the selections that starts with [category_name] will be applied.
 
+### Output of **`train_BDT.py`** 
+In the folder `output_path` it create a directory having the date in %Y%m%d-%H%M%S format as its name. In this directory there is: 
+* A copy of the configuration file
+* All the model trained (saved as .pkl)
+* The validation plots
+
