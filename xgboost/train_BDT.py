@@ -34,7 +34,7 @@ def train_model(files, name, config, index=None, category=None, condor=False):
             else:
                 model.apply_selection(config, key)
                 
-    output_path_new = output_path + date
+    output_path_new = output_path + "/" + date
     if not os.path.exists(output_path_new):
         subprocess.call("mkdir -p %s" % output_path_new, shell=True)
 
