@@ -72,3 +72,18 @@ In the folder `output_path` it create a directory having the date in %Y%m%d-%H%M
 * All the model trained (saved as .pkl)
 * The validation plots
 
+## Training on the batch system 
+First use **`prepare_condor.sh`** to create the files for condor submission
+```
+source prepare_condor.sh [config_file] [categories_names]
+```
+* [config_file]: **Mandatory**  Name of the configuration file (for example **`config/config.json`**)
+* [category_name]: **Mandatory** List of categories (like "Cat_A Cat_B Cat_C"). If there are no categories you have to pass ""
+
+Example: `source prepare_condor.sh config/config_tau3mu.json "Cat_A Cat_B Cat_C"`
+
+### Submission
+**`prepare_condor.sh`** creates the directory **`output_path`/date** (in %Y%m%d-%H%M%S format) with a copy of the configuration file and files for submission (submit.condor, launch_training.sh one per categoy) 
+
+To submit the jobs, form the main directory, run the submission of **`output_path`/date/submit.condor** (or submit_*.condor with * = categoy name)
+
