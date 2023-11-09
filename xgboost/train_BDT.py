@@ -49,9 +49,9 @@ def train_model(files, name, config, index=None, category=None, condor=False):
                    (model.y_train == False).sum(),
                    (model.y_train == True).sum() / float((model.y_train == False).sum())))
             if(category!=None):
-                model_name = "%s-%s-Event%u-Category_%s" % (name, date, event_index, category)
+                model_name = "%s/%s-Event%u-Category_%s" % (date, name, event_index, category)
             else:
-                model_name = "%s-%s-Event%u" % (name, date, event_index)
+                model_name = "%s/%s-Event%u" % (date, name, event_index)
             #model.add_weight()  #old reweight
             model.train(config, model_name)
     else:
@@ -61,9 +61,9 @@ def train_model(files, name, config, index=None, category=None, condor=False):
                    (model.y_train == False).sum(),
                    (model.y_train == True).sum() / float((model.y_train == False).sum())))
             if(category!=None):
-                model_name = "%s-%s-Event%u-Category_%s" % (name, date, index, category)
+                model_name = "%s/%s-Event%u-Category_%s" % (date, name, index, category)
             else:
-                model_name = "%s-%s-Event%u" % (name, date, index)
+                model_name = "%s/%s-Event%u" % (date, name, index)
             #model.add_weight()  #old reweight
             model.train(config, model_name)
 
