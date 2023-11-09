@@ -33,9 +33,10 @@ def train_model(files, name, config, index=None, category=None, condor=False):
                 model.apply_selection(config, key, mask2)
             else:
                 model.apply_selection(config, key)
-    
-    if not os.path.exists(output_path):
-        subprocess.call("mkdir -p %s" % output_path, shell=True)
+                
+    output_path_new = output_path + date
+    if not os.path.exists(output_path_new):
+        subprocess.call("mkdir -p %s" % output_path_new, shell=True)
 
     if not condor:
         config_out = "%s/%s-%s_config.json" % (output_path, name, date)
