@@ -324,7 +324,7 @@ class ModelHandler:
         ax.set_ylim([0.01, ax.get_ylim()[1]])
         fig.set_tight_layout(True)
         fig.savefig("%s/%s-validation-disc.pdf" % (self.output_path, model_name))
-        print("%s-validation-disc.pdf has been saved in %s" % (model_name, self.output_path))
+        print("%s/%s-validation-disc.pdf has been saved" % (self.output_path, model_name))
 
         fpr_test, tpr_test, _ = roc_curve(self.y_test, y_pred_test)
         print("fpr_test=",fpr_test.shape)
@@ -354,4 +354,4 @@ class ModelHandler:
         #ax.set_yscale("log")
         #ax.set_xscale("log")
         fig.savefig("%s/%s-validation-roc.pdf" % (self.output_path, model_name))
-        print("%s-validation-roc.pdf has been saved in %s" % (model_name, self.output_path))
+        print("%s/%s-validation-roc.pdf has been saved" % (self.output_path, model_name))
