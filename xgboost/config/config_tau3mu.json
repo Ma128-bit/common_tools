@@ -141,7 +141,7 @@
     "tree_name": "FinalTree",
     "output_path": "results/BDT",
     "event_fraction": 1,
-    "validation_plots": false,
+    "validation_plots": true,
     "number_of_splits": 5,
     "do_weight": true,
     "weight_column": "weight_MC2",
