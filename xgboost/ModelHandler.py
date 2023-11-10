@@ -263,14 +263,14 @@ class ModelHandler:
         culums = df_fold.columns.tolist()
         culums_n = [int(obj.split('_')[1]) for obj in culums]
         culums_ord = culums
-        masx = []
+        mask = []
         n_fold = len(culums_n)
-        for i in n_fold:
+        for i in range(n_fold):
             culums_ord[culums_n[i]] = culums[i]
             mask.append(df_fold.index % n_fold == i)
 
         temp_df = pd.DataFrame()
-        for i in n_fold:
+        for i in range(n_fold):
             temp_df[culums_ord[i]] = self.data[culums_ord[i]]*mask[i]
         self.data['bdt_cv'] = temp_df.sum(axis=1)
            
