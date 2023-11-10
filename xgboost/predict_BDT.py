@@ -72,7 +72,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
             fold_name = f"fold_{k}_"
             for j in range(N_cat):
                 print(fold_name+category_list[j]+'_')
-                #model.data = model.data.drop(fold_name+category_list[j]+'_', axis=1, errors='ignore')
+                model.data = model.data.drop(fold_name+category_list[j]+'_', axis=1, errors='ignore')
 
         print(model.data)
 
