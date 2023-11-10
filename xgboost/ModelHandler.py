@@ -29,6 +29,7 @@ class ModelHandler:
         self.tree_name = json_file['tree_name']
         self.Y_column = json_file['Y_column']
         self.BDT_0 = json_file['BDT_0']
+        self.index_branch = json_file['index_branch']
         self.data = None #ALL data
         self.train_data = None # Data with all the branches
         self.test_data = None
@@ -138,15 +139,16 @@ class ModelHandler:
         
         # Applica la maschera ai dati
         selected_data = self.data[mask]
-        #selected_data = selected_data.reset_index(drop=True) It's wrong, it implies problems wit cross validation
+        #selected_data = selected_data.reset_index(drop=True) 
         self.data = selected_data
         print("Length of data after selections: ", (self.data).shape[0])
     
     def prepare_train_and_test_datasets(self, config, n=4, index=0):
         """Split dataset into train and test subsets using event number."""
 
-        mask_train = self.data.index % n != index #La maschera è fatta su tutto il df senza separare bkg e sig
-        mask_test = self.data.index % n == index
+        #mask_train = self.data.index % n != index 
+        mask_train = self.data[self.index_branch] % n != index 
+        mask_test = self.data[self.index_branch] % n == index
         self.train_data = self.data[mask_train]
         self.test_data = self.data[mask_test]
         #print("self.data: ", self.data)
@@ -269,9 +271,9 @@ class ModelHandler:
         print(culums_ord)
         mask = []
         n_fold = len(culums_n)
+        
         for i in range(n_fold):
-            mask.append(df_fold.index % n_fold == i)
-
+            mask.append(self.data[self.index_branch] % n_fold == i)
         temp_df = pd.DataFrame()
         for i in range(n_fold):
             temp_df[culums_ord[i]] = self.data[culums_ord[i]]*mask[i]
