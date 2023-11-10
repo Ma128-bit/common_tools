@@ -286,19 +286,28 @@ class ModelHandler:
 
         
         
-    def plot_feature_importance(self, feature_importance, categories=None, model_name="test", date ="20231107-1847"):
-        feature_importance_mean = {}
+    def plot_feature_importance(self, feature_importance, category, model_name="test", date ="20231107-1847"):
+
+        mean_feature_importance = {'mean': {}}
+
+        # Calcola le medie
+        for key in feature_importance.keys():
+            for inner_key, inner_value in feature_importance[key].items():
+                if inner_key not in mean_feature_importance['mean']:
+                    mean_feature_importance['mean'][inner_key] = 0
+                mean_feature_importance['mean'][inner_key] += inner_value / len(mean_feature_importance)
+
+        for key, value in mean_feature_importance['mean'].items():
+            mean_feature_importance['mean'][key] = round(value, 2)
         
-        if categories is not None:
-            feature_importance_temp = []
-            num_cat = len(categories)
-            for i in range(num_cat):
-                feature_importance_temp.append({})
-            for key, value in feature_importance.items():
-                for i in range(num_cat):
-                    if categories[i] in key:
-                        feature_importance_temp[i][key] = value
-                        
+        inner_dict = mean_feature_importance['mean']
+
+        ax = xgb.plot_importance(inner_dict, max_num_features=30, importance_type='gain', show_values=True)
+        fig = ax.figure
+        fig.set_size_inches(20, 10)
+        directory = self.output_path + "/" + date
+        fig.savefig(directory+"/"+model_name+"_feature_importance_"+category+".png")
+
             
             
         
