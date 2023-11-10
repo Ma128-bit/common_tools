@@ -223,7 +223,9 @@ class ModelHandler:
         """Load BDT models"""
         lable_name = model_name+"-Event"
         directory = self.output_path + "/" + date
+        print(directory)
         file_list = os.listdir(self.output_path)
+        print(file_list)
         model_names = [file for file in file_list if file.startswith(lable_name) and file.endswith(".pkl")]
         print(model_names)
         models = {}
