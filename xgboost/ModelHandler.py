@@ -228,12 +228,15 @@ class ModelHandler:
         file_list = os.listdir(directory)
         model_names = [file for file in file_list if file.startswith(lable_name) and file.endswith(".pkl")]
         models = {}
+        print(Loading models ...)
         for i in model_names:
             model_file_path = directory + "/" + i
-            print(model_file_path)
+            print(model_file_path, end=' ... ')
             with open(model_file_path, 'rb') as f:
                 model_i = pickle.load(f)
             models[i] = model_i
+        print(" ")
+        print("Done!")
         return models
 
     def predict_models(self, models, model_name="test"):
@@ -262,13 +265,10 @@ class ModelHandler:
         self.data['bdt'] = df_fold.mean(axis=1)
         
         culums = df_fold.columns.tolist()
-        print(df_fold)
-        print(culums)
         culums_n = [int(obj.split('_')[1]) for obj in culums]
         couples = zip(culums, culums_n)
         couples_sorted = sorted(couples, key=lambda x: x[1])
         culums_ord = [elem[0] for elem in couples_sorted]
-        print(culums_ord)
         mask = []
         n_fold = len(culums_n)
         
@@ -278,7 +278,7 @@ class ModelHandler:
         for i in range(n_fold):
             temp_df[culums_ord[i]] = self.data[culums_ord[i]]*mask[i]
             #print(temp_df[culums_ord[i]])
-        print(temp_df)
+        #print(temp_df)
         self.data['bdt_cv'] = temp_df.sum(axis=1)
            
 
