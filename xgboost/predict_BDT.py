@@ -47,9 +47,10 @@ def predict_BDT_model(files, name, config, date, categories=None):
             print(model.data)
             model.data = data_copy.copy()
         
-        total_index = []
+        #total_index = []
         for i in range(len(df_index)):
-            total_index = total_index + df_index[i]
+            print(df_index[i])
+            #total_index = total_index + df_index[i]
             
         model.data = out_df[0]
         branches_list = model.all_branches
@@ -76,7 +77,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
             fold_name = f"fold_{i}_"
             for j in range(N_cat):
                 print(fold_name+category_list[i]+'_')
-                model.data = model.data.drop(fold_name+category_list[i]+'_', axis=1, errors='ignore')
+                #model.data = model.data.drop(fold_name+category_list[i]+'_', axis=1, errors='ignore')
 
         print(model.data)
 
