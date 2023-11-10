@@ -44,7 +44,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
             features_imp = model.predict_models(models_per_cat[category_list[i]], name)
             model.mk_bdt_score(models_per_cat[category_list[i]])
             out_df.append(model.data)
-            print(model.data)
+            #print(model.data)
             model.data = data_copy.copy()
         
         total_index = pd.concat(df_index, axis=0)
@@ -67,7 +67,6 @@ def predict_BDT_model(files, name, config, date, categories=None):
                 model.data[fold_name] = model.data[fold_name].combine_first(model.data[fold_name+category_list[j]+'_'])
                 model.data = model.data.drop(fold_name+category_list[j]+'_', axis=1, errors='ignore')
 
-        print(model.data)
         model.data = model.data.sort_index()
         print(model.data)
 
