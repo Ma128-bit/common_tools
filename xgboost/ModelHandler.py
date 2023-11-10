@@ -228,7 +228,7 @@ class ModelHandler:
         file_list = os.listdir(directory)
         model_names = [file for file in file_list if file.startswith(lable_name) and file.endswith(".pkl")]
         models = {}
-        print(Loading models ...)
+        print("Loading models ...")
         for i in model_names:
             model_file_path = directory + "/" + i
             print(model_file_path, end=' ... ')
