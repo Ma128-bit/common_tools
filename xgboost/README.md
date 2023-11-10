@@ -3,8 +3,8 @@ Note: The code is a modified version of the one used in the [Bmm5 analysis](http
 
 ## Configuration file 
 ModelHandler.py is a wrapper around XGBoost. All you need to do is create a json configuration file that contains the following information:
-* `feature_names` : name of the branches of the tree used for the BDT training. No feature wit name that contains "fold"
-* `other_branches` : other branches that you keed (for Y set, selections, weight, etc...). No branch wit name that contains "fold"
+* `feature_names` : name of the branches of the tree used for the BDT training. No feature wit name that contains "fold" or "bdt" or "bdt_cv"
+* `other_branches` : other branches that you keed (for Y set, selections, weight, etc...). No branch wit name that contains "fold" or "bdt" or "bdt_cv"
 * `Y_column` : The name of the branch used to create the Y set
 * `BDT_0` : is the value of Y_column associated to 0 in the Y set, values of Y_column different from BDT_0 are set to 1 in the Y set
 * `selections_*` : List of pre-selections (* = 1,2,3,...)
