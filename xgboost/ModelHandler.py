@@ -229,9 +229,11 @@ class ModelHandler:
         model_names = [file for file in file_list if file.startswith(lable_name) and file.endswith(".pkl")]
         models = {}
         print("Loading models ...")
+        print("Directory: ", directory)
+        print("Files: ")
         for i in model_names:
             model_file_path = directory + "/" + i
-            print(model_file_path, end=' ... ')
+            print(i, end=', ')
             with open(model_file_path, 'rb') as f:
                 model_i = pickle.load(f)
             models[i] = model_i
