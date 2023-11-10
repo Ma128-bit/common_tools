@@ -44,7 +44,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
             features_imp = model.predict_models(models_per_cat[category_list[i]], name)
             model.mk_bdt_score(models_per_cat[category_list[i]])
             out_df.append(model.data)
-            #print(model.data)
+            print("End ", category_list[i])
             model.data = data_copy.copy()
         
         total_index = pd.concat(df_index, axis=0)
