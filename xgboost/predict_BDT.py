@@ -34,14 +34,18 @@ def predict_BDT_model(files, name, config, date, categories=None):
                 if category in key:
                     models_per_cat[category][key] = value
         
-        print(models_per_cat)
         data_copy = model.data.copy()
         N_cat = len(category_list)
         out_df = []
+        df_index = []
         #for i in range(N_cat):
         for i in range(1):
             model.data = model.data[model.data[category_lable] == i]
+            df_index.append(model.data.index)
             print(model.data)
+            model.data = model.data.reset_index(drop=True)
+            print(model.data)
+            print(df_index[i])
             features_imp = model.predict_models(models_per_cat[category_list[i]], name)
             model.mk_bdt_score(models_per_cat[category_list[i]])
             out_df.append(model.data)
