@@ -261,6 +261,8 @@ class ModelHandler:
         self.data['bdt'] = df_fold.mean(axis=1)
         
         culums = df_fold.columns.tolist()
+        print(df_fold)
+        print(culums)
         culums_n = [int(obj.split('_')[1]) for obj in culums]
         culums_ord = culums
         mask = []
