@@ -12,6 +12,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
         json_file = json.load(file)
     number_of_splits = json_file['number_of_splits']
     output_path = json_file['output_path']
+    category_lable = json_file['prediction_category_lable']
     selections_keys = [key for key in json_file.keys() if key.startswith("selections_")]
     print("pre-selections: ",selections_keys)
 
@@ -20,9 +21,8 @@ def predict_BDT_model(files, name, config, date, categories=None):
 
     if categories is None:
         models = model.load_models(name, date)
-        model.predict_models(models, name)
+        features_imp = model.predict_models(models, name)
         model.mk_bdt_score(models)
-        print(model.data.columns.tolist())
         print(model.data)
 
     if categories is not None:
@@ -33,6 +33,17 @@ def predict_BDT_model(files, name, config, date, categories=None):
             for category in category_list:
                 if category in key:
                     models_per_cat[category][key] = value
+
+        data_copy = model.data.copy()
+        N_cat = len(category_list)
+        out_df = []
+        for i in N_cat
+            model.data = model.data[category_lable == i]
+            features_imp = model.predict_models(models_per_cat[category_list[i]], name)
+            model.mk_bdt_score(models_per_cat[category_list[i]])
+            out_df.append(model.data)
+            print(model.data)
+            model.data = data_copy
         
 
 
