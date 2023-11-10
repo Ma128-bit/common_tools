@@ -237,7 +237,6 @@ class ModelHandler:
     def predict_models(self, models, model_name="test"):
         """Predict BDT models"""
         self.x = self.data[self.features]
-        self.y = self.data[self.Y_column]
 
         feature_importance = {}
         for key, value in models.items():
