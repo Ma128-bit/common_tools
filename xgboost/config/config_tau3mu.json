@@ -7,7 +7,8 @@
             "selections_1": "",
             "event_fraction": "Is the fraction of original data files which are read",
             "Y_column": "Is the Y set",
-            "BDT_0": "Is the value of Y_column associated to the 0 in the training, the values different from BDT_0 will be 1"
+            "BDT_0": "Is the value of Y_column associated to the 0 in the training, the values different from BDT_0 will be 1",
+            "prediction_category_lable": "Used only in predictions, it is a id: 0, 1, 2, ... that identify the category, so the category list given as input must be consistent with this"
     },
     "feature_names": [
         "cLP",
@@ -145,6 +146,7 @@
     "number_of_splits": 5,
     "do_weight": true,
     "weight_column": "weight_MC2",
+    "prediction_category_lable": "category",
     "Name": "Run2022",
     "data_path": "/lustrehome/mbuonsante/Tau_3mu/xgboost/CMSSW_13_0_13/src/xgboost/",
     "files": [
