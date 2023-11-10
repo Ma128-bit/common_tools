@@ -72,6 +72,7 @@
     "validation_plots": true,
     "number_of_splits": 3,
     "do_weight": true,
+    "index_branch": "evt",
     "weight_column": "staRelChi2",
     "Name": "Run2022",
     "data_path": "/eos/cms/store/group/phys_bphys/bmm/bmm6/PostProcessing/FlatNtuples/525/muon_mva/",
