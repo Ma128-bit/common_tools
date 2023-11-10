@@ -76,7 +76,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
         print(model.data)
 
     fileName = output_path + "/" + date + "/"+name+"_minitree"
-    model.data.to_csv(fileName+".csv")
+    model.data.to_csv(fileName+".csv", index=False)
     print("File CSV saved!")
     rdf = ROOT.RDF.MakeCsvDataFrame(fileName+".csv")
     rdf.Snapshot("OutputTree", fileName+".root")
