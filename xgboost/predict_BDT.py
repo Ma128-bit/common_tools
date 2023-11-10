@@ -58,7 +58,6 @@ def predict_BDT_model(files, name, config, date, categories=None):
             model.data = pd.merge(model.data, df, on=list(branches_list), how='outer')
 
         model.data.index = total_index
-        print(model.data['fold_0_Cat_A_'])
 
         for i in range(number_of_splits): #MERGE SAME FOLD but DIFFERENT CATEGORIES branches 
             fold_name = f"fold_{i}_"
@@ -69,16 +68,8 @@ def predict_BDT_model(files, name, config, date, categories=None):
                 model.data = model.data.drop(fold_name+category_list[j]+'_', axis=1, errors='ignore')
 
         print(model.data)
-        """
-        for k in range(number_of_splits):
-            fold_name = f"fold_{k}_"
-            for j in range(N_cat):
-                print(fold_name+category_list[j]+'_')
-                model.data = model.data.drop(fold_name+category_list[j]+'_', axis=1, errors='ignore')
-
+        model.data = model.data.sort_index()
         print(model.data)
-
-        """
 
         
 
