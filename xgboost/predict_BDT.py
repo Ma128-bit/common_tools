@@ -35,6 +35,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
                     models_per_cat[category][key] = value
 
         data_copy = model.data.copy()
+        print(model.data[category_lable])
         N_cat = len(category_list)
         out_df = []
         for i in range(N_cat):
