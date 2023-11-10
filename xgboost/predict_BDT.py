@@ -38,7 +38,8 @@ def predict_BDT_model(files, name, config, date, categories=None):
         print(model.data[category_lable])
         N_cat = len(category_list)
         out_df = []
-        for i in range(N_cat):
+        #for i in range(N_cat):
+        for i in range(1):
             model.data = model.data[model.data[category_lable] == i]
             features_imp = model.predict_models(models_per_cat[category_list[i]], name)
             model.mk_bdt_score(models_per_cat[category_list[i]])
