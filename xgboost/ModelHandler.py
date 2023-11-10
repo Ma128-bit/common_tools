@@ -223,11 +223,8 @@ class ModelHandler:
         """Load BDT models"""
         lable_name = model_name+"-Event"
         directory = self.output_path + "/" + date
-        print(directory)
         file_list = os.listdir(directory)
-        print(file_list)
         model_names = [file for file in file_list if file.startswith(lable_name) and file.endswith(".pkl")]
-        print(model_names)
         models = {}
         for i in model_names:
             model_file_path = directory + "/" + i
@@ -244,13 +241,13 @@ class ModelHandler:
 
         feature_importance = {}
         for key, value in models.items():
-            print(f"key: {key}, value: {value}")
             k_name = key.replace("pkl", "")
-            k_name = key.replace(".", "_")
+            k_name = k_name.replace(".", "_")
             k_name = k_name.replace(model_name, "")
             k_name = k_name.replace("-", "")
             k_name = k_name.replace("Event", "fold_")
             k_name = k_name.replace("Category", "")
+            print(key, " --> ", k_name)
             pred = value.predict(self.x)
             self.data[k_name] = pred
             booster = value.get_booster()
@@ -272,9 +269,12 @@ class ModelHandler:
             culums_ord[culums_n[i]] = culums[i]
             mask.append(df_fold.index % n_fold == i)
 
+        print(culums_ord)
         temp_df = pd.DataFrame()
         for i in range(n_fold):
             temp_df[culums_ord[i]] = self.data[culums_ord[i]]*mask[i]
+            print(temp_df[culums_ord[i]])
+        print(temp_df)
         self.data['bdt_cv'] = temp_df.sum(axis=1)
            
 
