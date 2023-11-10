@@ -45,28 +45,26 @@ def predict_BDT_model(files, name, config, date, categories=None):
             model.mk_bdt_score(models_per_cat[category_list[i]])
             out_df.append(model.data)
             print(model.data)
-            print(model.data['evt'])
             model.data = data_copy.copy()
 
         model.data = out_df[0]
         branches_list = model.all_branches
-        print(branches_list)
         branches_list.append('bdt')
         branches_list.append('bdt_cv')
-        print(branches_list)
+
         for df in out_df[1:]:
             model.data = pd.merge(model.data, df, on=list(branches_list), how='outer')
 
         print(model.data)
-        print(model.data['bdt'])
+        print(model.data['fold_0_Cat_A_'])
 
         for i in range(number_of_splits):
             fold_name = f"fold_{i}_"
             model.data[fold_name] = model.data[fold_name+category_list[0]+'_']
-            model.data = model.data.drop(fold_name+category_list[0]+'_', axis=1)
+            #model.data = model.data.drop(fold_name+category_list[0]+'_', axis=1)
             for j in range(1, N_cat):
                 model.data[fold_name] = model.data[fold_name].combine_first(model.data[fold_name+category_list[j]+'_'])
-                model.data = model.data.drop(fold_name+category_list[i]+'_', axis=1)
+                #model.data = model.data.drop(fold_name+category_list[i]+'_', axis=1)
 
         print(model.data)
 
