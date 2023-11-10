@@ -50,12 +50,15 @@ def predict_BDT_model(files, name, config, date, categories=None):
 
         model.data = out_df[0]
         branches_list = model.all_branches
+        print(branches_list)
         branches_list.append('bdt')
         branches_list.append('bdt_cv')
+        print(branches_list)
         for df in out_df[1:]:
             model.data = pd.merge(model.data, df, on=list(branches_list), how='outer')
 
         print(model.data)
+        print(model.data['bdt'])
         
 
 
