@@ -4,7 +4,7 @@ from ModelHandler import *
 class MuonMVA(ModelHandler):
     pass
 
-def train_model(files, name, config, index=None, category=None, condor=False):
+def predict_BDT_model(files, name, config, index=None, category=None, condor=False):
     model = MuonMVA(config)
     model.load_datasets(files, config)
 
@@ -73,16 +73,12 @@ if __name__ == "__main__":
 
     parser.add_argument("--config", type=str, help="Path to the JSON configuration file")
     parser.add_argument("--category", type=str, help="Name of the category")
-    parser.add_argument("--index", type=int, help="Index number")
-    parser.add_argument("--condor", action="store_true", help="Use of condor")
 
     
     args = parser.parse_args()
     
     config = args.config
     category = args.category
-    index = args.index
-    condor = args.condor
 
     date = datetime.now().strftime("%Y%m%d-%H%M%S")
     
