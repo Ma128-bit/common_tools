@@ -60,7 +60,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
         print(model.data)
         print(model.data['bdt'])
 
-        for i in range len(number_of_splits):
+        for i in range(number_of_splits):
             fold_name = f"fold_{i}_"
                 model.data[fold_name] = model.data[fold_name+category_list[0]+'_']
                 model.data = model.data.drop(fold_name+category_list[0]+'_', axis=1)
