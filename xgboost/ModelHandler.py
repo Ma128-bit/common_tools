@@ -138,7 +138,7 @@ class ModelHandler:
         
         # Applica la maschera ai dati
         selected_data = self.data[mask]
-        selected_data = selected_data.reset_index(drop=True)
+        #selected_data = selected_data.reset_index(drop=True) It's wrong, it implies problems wit cross validation
         self.data = selected_data
         print("Length of data after selections: ", (self.data).shape[0])
     
