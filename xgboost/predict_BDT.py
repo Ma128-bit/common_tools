@@ -64,10 +64,9 @@ def predict_BDT_model(files, name, config, date, categories=None):
             model.data = model.data.drop(fold_name+category_list[0]+'_', axis=1, errors='ignore')
             for j in range(1, N_cat):
                 model.data[fold_name] = model.data[fold_name].combine_first(model.data[fold_name+category_list[j]+'_'])
-                #model.data = model.data.drop(fold_name+category_list[i]+'_', axis=1)
+                model.data = model.data.drop(fold_name+category_list[i]+'_', axis=1, errors='ignore')
 
         print(model.data)
-        print(model.data['fold_0_Cat_A_'])
 
         
 
