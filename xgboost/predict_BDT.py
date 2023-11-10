@@ -31,7 +31,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run the BDT training")
 
     parser.add_argument("--config", type=str, help="Path to the JSON configuration file")
-    parser.add_argument("--category", type=str, help="Name of the category", required=False)
+    parser.add_argument("--category", type=str, help="Name of the category")
 
     args = parser.parse_args()
     
