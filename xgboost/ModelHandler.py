@@ -194,8 +194,7 @@ class ModelHandler:
                             verbose               = True,
                             sample_weight = self.train_weights,
                             eval_set=[(self.x_train, self.y_train), (self.x_test, self.y_test)]
-                        )
-                        
+                        )       
         else:
             self.model.fit(self.x_train, self.y_train,
                             verbose               = True,
@@ -204,7 +203,6 @@ class ModelHandler:
                     
         booster = (self.model).get_booster()
         importance_temp = booster.get_score(importance_type="gain")
-                
         max_length = max([len(s) for s in self.features])
         feature_format = "%" + "%u" % max_length + "s"
 
@@ -261,8 +259,21 @@ class ModelHandler:
     def mk_bdt_score(self, models, model_name="test"):
         df_fold = self.data.filter(like="fold", axis=1)
         self.data['bdt'] = df_fold.mean(axis=1)
+        
         culums = df_fold.columns.tolist()
         culums_n = [int(obj.split('_')[1]) for obj in culums]
+        culums_ord = culums
+        masx = []
+        n_fold = len(culums_n)
+        for i in n_fold:
+            culums_ord[culums_n[i]] = culums[i]
+            mask.append(df_fold.index % n_fold == i)
+
+        temp_df = pd.DataFrame()
+        for i in n_fold:
+            temp_df[culums_ord[i]] = self.data[culums_ord[i]]*mask[i]
+        self.data['bdt_cv'] = temp_df.sum(axis=1)
+           
 
         
         
