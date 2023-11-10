@@ -46,15 +46,21 @@ def predict_BDT_model(files, name, config, date, categories=None):
             out_df.append(model.data)
             print(model.data)
             model.data = data_copy.copy()
-
+        
+        total_index = []
+        for i in range(len(df_index)):
+            total_index = total_index + df_index[i]
+            
         model.data = out_df[0]
         branches_list = model.all_branches
         branches_list.append('bdt')
         branches_list.append('bdt_cv')
 
         for df in out_df[1:]: #MERGE DIFFERENT CATEGORIES
-            model.data = pd.merge(model.data, df, left_index=True, right_index=True, on=list(branches_list), how='outer')
+            model.data = pd.merge(model.data, df, on=list(branches_list), how='outer')
 
+        print(model.data)
+        model.data.index = total_index
         print(model.data)
         print(model.data['fold_0_Cat_A_'])
 
