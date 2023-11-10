@@ -225,6 +225,7 @@ class ModelHandler:
         directory = self.output_path + "/" + date
         file_list = os.listdir(self.output_path)
         model_names = [file for file in file_list if file.startswith(lable_name) and file.endswith(".pkl")]
+        print(model_names)
         models = {}
         for i in model_names:
             model_file_path = directory + "/" + i
