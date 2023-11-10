@@ -72,7 +72,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
         model.data = model.data.sort_index()
         print(model.data)
 
-    fileName = output_path + "/" + data + "/"+name+"_minitree"
+    fileName = output_path + "/" + date + "/"+name+"_minitree"
     model.data.to_csv(fileName+".csv")
     print("File CSV saved!")
     rdf = ROOT.RDF.FromCSV(fileName+".csv")
