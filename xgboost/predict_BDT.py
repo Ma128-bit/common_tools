@@ -45,6 +45,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
             model.mk_bdt_score(models_per_cat[category_list[i]])
             out_df.append(model.data)
             print(model.data)
+            print(model.data['evt'])
             model.data = data_copy
         
 
