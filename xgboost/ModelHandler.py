@@ -32,12 +32,14 @@ class ModelHandler:
         self.Y_column = json_file['Y_column']
         self.BDT_0 = json_file['BDT_0']
         self.data = None #ALL data
-        self.train_data = None #Data with all the branches
+        self.train_data = None # Data with all the branches
         self.test_data = None
         self.x_train = None # Data for train and test with only feature_names branches for x
         self.x_test  = None
         self.y_train = None # Data for train and test with only Y_column branches for x
         self.y_test  = None
+        self.x = None # Data with only feature_names branches
+        self.y = None
         self.model = None
         self.roc_bkg_min = 0.2
         self.roc_bkg_max = 1.0
@@ -221,14 +223,57 @@ class ModelHandler:
         if self.do_validation_plots:
             self.make_validation_plots(model_name)
             
-    def load_models(self, config, model_name="test", date ="20231107-1847"):
+    def load_models(self, model_name="test", date ="20231107-1847"):
         """Load BDT models"""
-        lable_name = model_name+"-"+date+"-Event"
+        lable_name = model_name+"-Event"
+        directory = self.output_path + "/" + date
         file_list = os.listdir(self.output_path)
-        models = [file for file in file_list if file.startswith(lable_name) and file.endswith(".pkl")]
-        for i in models:
-            print(cartella + i)
+        model_names = [file for file in file_list if file.startswith(lable_name) and file.endswith(".pkl")]
+        models = {}
+        for i in model_names:
+            model_file_path = directory + "/" + i
+            print(model_file_path)
+            with open(model_file_path, 'rb') as f:
+                model_i = pickle.load(f)
+            models[i] = model_i
+        return models
+
+    def predict_models(self, models, model_name="test"):
+        """Predict BDT models"""
+        self.x = self.data[self.features]
+        self.y = self.data[self.Y_column]
+
+        feature_importance = {}
+        for key, value in models.items():
+            print(f"key: {key}, value: {value}")
+            k_name = key.replace(".pkl", "")
+            k_name = k_name.replace(model_name, "")
+            k_name = k_name.replace("-", "")
+            k_name = k_name.replace("Event", "fold")
+            k_name = k_name.replace("Category", "")
+            pred = value.predict(self.x)
+            self.data[k_name] = pred
+            booster = value.get_booster()
+            importance_temp = booster.get_score(importance_type="gain")
+            feature_importance[key] = importance_temp
+            
+        return feature_importance
+
+    def plot_feature_importance(self, feature_importance, categories=None, model_name="test", date ="20231107-1847"):
+        feature_importance_mean = {}
         
+        if categories is not None:
+            feature_importance_temp = []
+            num_cat = len(categories)
+            for i in range(num_cat):
+                feature_importance_temp.append({})
+            for key, value in feature_importance.items():
+                for i in range(num_cat):
+                    if categories[i] in key:
+                        feature_importance_temp[i][key] = value
+                        
+            
+            
         
 
     def make_validation_plots(self, model_name="test"):
