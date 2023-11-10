@@ -265,18 +265,15 @@ class ModelHandler:
         print(culums)
         culums_n = [int(obj.split('_')[1]) for obj in culums]
         print(culums_n)
-        culums_ord = culums
+        couples = zip(culums, culums_n)
+        couples_sorted = sorted(couples, key=lambda x: x[1])
+        culums_ord = [elem[0] for elem in couples_sorted]
         print(culums_ord)
         mask = []
         n_fold = len(culums_n)
-        print(n_fold)
         for i in range(n_fold):
-            print(i, " ", culums[i])
-            culums_ord[culums_n[i]] = culums[i]
-            print(culums_n[i])
             mask.append(df_fold.index % n_fold == i)
 
-        print(culums_ord)
         temp_df = pd.DataFrame()
         for i in range(n_fold):
             temp_df[culums_ord[i]] = self.data[culums_ord[i]]*mask[i]
