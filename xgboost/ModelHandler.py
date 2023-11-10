@@ -247,7 +247,7 @@ class ModelHandler:
             k_name = k_name.replace("-", "")
             k_name = k_name.replace("Event", "fold_")
             k_name = k_name.replace("Category", "")
-            print(key, " --> ", k_name)
+            #print(key, " --> ", k_name)
             pred = value.predict(self.x)
             self.data[k_name] = pred
             booster = value.get_booster()
@@ -265,8 +265,11 @@ class ModelHandler:
         culums_ord = culums
         mask = []
         n_fold = len(culums_n)
+        print(n_fold)
         for i in range(n_fold):
+            print(i, " ", culums[i])
             culums_ord[culums_n[i]] = culums[i]
+            print(culums_n[i])
             mask.append(df_fold.index % n_fold == i)
 
         print(culums_ord)
