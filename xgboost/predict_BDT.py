@@ -40,16 +40,14 @@ def predict_BDT_model(files, name, config, date, categories=None):
         df_index = []
         for i in range(N_cat):
             model.data = model.data[model.data[category_lable] == i]
-            df_index.append(model.data.index)
+            df_index.append(model.data.index.to_series())
             features_imp = model.predict_models(models_per_cat[category_list[i]], name)
             model.mk_bdt_score(models_per_cat[category_list[i]])
             out_df.append(model.data)
             print(model.data)
             model.data = data_copy.copy()
         
-        total_index  = pd.Index([])
-        for i in range(len(df_index)):
-            total_index = pd.concat(total_index, df_index[i])
+        total_index = pd.concat(df_index, axis=0)
             
         model.data = out_df[0]
         branches_list = model.all_branches
