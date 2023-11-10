@@ -307,6 +307,7 @@ class ModelHandler:
         fig.set_size_inches(20, 10)
         directory = self.output_path + "/" + date
         fig.savefig(directory+"/"+model_name+"_feature_importance_"+category+".png")
+        print(model_name+"_feature_importance_"+category+".png ","saved!")
 
             
             
