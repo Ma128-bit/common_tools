@@ -1,8 +1,11 @@
 import argparse
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
 from ModelHandler import *
 
 class MuonMVA(ModelHandler):
     pass
+warnings.filterwarnings("default", category=UserWarning, module="numpy")
 
 def predict_BDT_model(files, name, config, date, categories=None):
     model = MuonMVA(config)
