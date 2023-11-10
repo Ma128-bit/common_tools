@@ -46,7 +46,10 @@ def predict_BDT_model(files, name, config, date, categories=None):
             out_df.append(model.data)
             print(model.data)
             print(model.data['evt'])
-            model.data = data_copy
+            model.data = data_copy.copy()
+
+        model.data = pd.concat(out_df, axis=1)
+        print(model.data)
         
 
 
