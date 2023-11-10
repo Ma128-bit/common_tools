@@ -41,6 +41,12 @@ def train_model(files, name, config, index=None, category=None, condor=False):
     if not condor:
         config_out = "%s/%s_config.json" % (output_path_new, name)
         subprocess.run(["cp", config, config_out])
+        with open(config_out, 'r') as file:
+            dati = json.load(file)
+        new_key = 'date'
+        dati[new_key] = date
+        with open(config_out, 'w') as file:
+            json.dump(dati, file, indent=2)
     
     if index==None:
         for event_index in range(number_of_splits):
