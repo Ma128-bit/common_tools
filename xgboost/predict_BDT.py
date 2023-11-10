@@ -20,6 +20,7 @@ def predict_BDT_model(files, name, config, date, category=None):
 
     if category is None:
         models = model.load_models(name, date)
+        print(models)
         model.predict_models(models, name)
         model.mk_bdt_score(models)
         print(model.data.columns.tolist())
