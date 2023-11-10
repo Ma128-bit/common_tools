@@ -63,11 +63,13 @@ def predict_BDT_model(files, name, config, date, categories=None):
         for i in range(number_of_splits): #MERGE SAME FOLD but DIFFERENT CATEGORIES branches 
             fold_name = f"fold_{i}_"
             model.data[fold_name] = model.data[fold_name+category_list[0]+'_']
-            #model.data = model.data.drop(fold_name+category_list[0]+'_', axis=1, errors='ignore')
+            model.data = model.data.drop(fold_name+category_list[0]+'_', axis=1, errors='ignore')
             for j in range(1, N_cat):
                 model.data[fold_name] = model.data[fold_name].combine_first(model.data[fold_name+category_list[j]+'_'])
+                model.data = model.data.drop(fold_name+category_list[j]+'_', axis=1, errors='ignore')
 
         print(model.data)
+        """
         for k in range(number_of_splits):
             fold_name = f"fold_{k}_"
             for j in range(N_cat):
@@ -75,6 +77,8 @@ def predict_BDT_model(files, name, config, date, categories=None):
                 model.data = model.data.drop(fold_name+category_list[j]+'_', axis=1, errors='ignore')
 
         print(model.data)
+
+        """
 
         
 
