@@ -48,7 +48,13 @@ def predict_BDT_model(files, name, config, date, categories=None):
             print(model.data['evt'])
             model.data = data_copy.copy()
 
-        model.data = pd.concat(out_df, axis=1)
+        model.data = out_df[0]
+        branches_list = model.all_branches
+        branches_list.append('bdt')
+        branches_list.append('bdt_cv')
+        for df in out_df[1:]:
+            model.data = pd.merge(model.data, df, on=list(branches_list), how='outer')
+
         print(model.data)
         
 
