@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 import uproot
 import pickle
-from sklearn.model_selection import train_test_split
 import xgboost as xgb
 from sklearn.metrics import roc_curve, roc_auc_score
 from pprint import pprint
@@ -12,7 +11,6 @@ import matplotlib as mpl
 # https://matplotlib.org/faq/usage_faq.html
 mpl.use('Agg')
 import matplotlib.pyplot as plt
-from math import cos
 import random
 import ROOT
 from ROOT import *
@@ -246,10 +244,11 @@ class ModelHandler:
         feature_importance = {}
         for key, value in models.items():
             print(f"key: {key}, value: {value}")
-            k_name = key.replace(".pkl", "")
+            k_name = key.replace("pkl", "")
+            k_name = key.replace(".", "_")
             k_name = k_name.replace(model_name, "")
             k_name = k_name.replace("-", "")
-            k_name = k_name.replace("Event", "fold")
+            k_name = k_name.replace("Event", "fold_")
             k_name = k_name.replace("Category", "")
             pred = value.predict(self.x)
             self.data[k_name] = pred
@@ -259,6 +258,14 @@ class ModelHandler:
             
         return feature_importance
 
+    def mk_bdt_score(self, models, model_name="test"):
+        df_fold = self.data.filter(like="fold", axis=1)
+        self.data['bdt'] = df_fold.mean(axis=1)
+        culums = df_fold.columns.tolist()
+        culums_n = [int(obj.split('_')[1]) for obj in culums]
+
+        
+        
     def plot_feature_importance(self, feature_importance, categories=None, model_name="test", date ="20231107-1847"):
         feature_importance_mean = {}
         
