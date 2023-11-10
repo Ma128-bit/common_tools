@@ -264,7 +264,6 @@ class ModelHandler:
         print(df_fold)
         print(culums)
         culums_n = [int(obj.split('_')[1]) for obj in culums]
-        print(culums_n)
         couples = zip(culums, culums_n)
         couples_sorted = sorted(couples, key=lambda x: x[1])
         culums_ord = [elem[0] for elem in couples_sorted]
@@ -277,7 +276,7 @@ class ModelHandler:
         temp_df = pd.DataFrame()
         for i in range(n_fold):
             temp_df[culums_ord[i]] = self.data[culums_ord[i]]*mask[i]
-            print(temp_df[culums_ord[i]])
+            #print(temp_df[culums_ord[i]])
         print(temp_df)
         self.data['bdt_cv'] = temp_df.sum(axis=1)
            
