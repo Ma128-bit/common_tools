@@ -61,9 +61,14 @@ def predict_BDT_model(files, name, config, date, categories=None):
         for i in range(number_of_splits):
             fold_name = f"fold_{i}_"
             model.data[fold_name] = model.data[fold_name+category_list[0]+'_']
-            model.data = model.data.drop(fold_name+category_list[0]+'_', axis=1, errors='ignore')
+            #model.data = model.data.drop(fold_name+category_list[0]+'_', axis=1, errors='ignore')
             for j in range(1, N_cat):
                 model.data[fold_name] = model.data[fold_name].combine_first(model.data[fold_name+category_list[j]+'_'])
+
+        print(model.data)
+        for i in range(number_of_splits):
+            fold_name = f"fold_{i}_"
+            for j in range(1, N_cat):
                 model.data = model.data.drop(fold_name+category_list[i]+'_', axis=1, errors='ignore')
 
         print(model.data)
