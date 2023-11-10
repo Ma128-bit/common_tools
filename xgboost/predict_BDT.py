@@ -47,10 +47,9 @@ def predict_BDT_model(files, name, config, date, categories=None):
             print(model.data)
             model.data = data_copy.copy()
         
-        #total_index = []
+        total_index  = pd.Int64Index([])
         for i in range(len(df_index)):
-            print(df_index[i])
-            #total_index = total_index + df_index[i]
+            total_index = pd.concat(total_index, df_index[i])
             
         model.data = out_df[0]
         branches_list = model.all_branches
