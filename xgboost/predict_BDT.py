@@ -22,6 +22,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
     if categories is None:
         models = model.load_models(name, date)
         features_imp = model.predict_models(models, name)
+        model.plot_feature_importance(features_imp, "", name, date)
         model.mk_bdt_score(models)
         print(model.data)
 
