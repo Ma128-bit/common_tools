@@ -256,7 +256,7 @@ class ModelHandler:
             
         return feature_importance
 
-    def mk_bdt_score(self, models, model_name="test"):
+    def mk_bdt_score(self, models:
         df_fold = self.data.filter(like="fold", axis=1)
         self.data['bdt'] = df_fold.mean(axis=1)
         
