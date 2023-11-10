@@ -264,7 +264,9 @@ class ModelHandler:
         print(df_fold)
         print(culums)
         culums_n = [int(obj.split('_')[1]) for obj in culums]
+        print(culums_n)
         culums_ord = culums
+        print(culums_ord)
         mask = []
         n_fold = len(culums_n)
         print(n_fold)
