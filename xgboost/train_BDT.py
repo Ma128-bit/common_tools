@@ -1,8 +1,10 @@
 import argparse
+warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
 from ModelHandler import *
 
 class MuonMVA(ModelHandler):
     pass
+warnings.filterwarnings("default", category=UserWarning, module="numpy")
 
 def train_model(files, name, config, index=None, category=None, condor=False):
     model = MuonMVA(config)
