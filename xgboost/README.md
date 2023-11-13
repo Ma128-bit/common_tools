@@ -94,4 +94,17 @@ Example: `source prepare_condor.sh config/config_tau3mu.json "Cat_A Cat_B Cat_C"
 
 To submit the jobs, form the main directory, run the submission of **`output_path`/date/submit.condor** (or submit_*.condor with * = categoy name)
 
-## Training on the batch system 
+## Predictions
+To add the predictions of each model and the overall `bdt` score and `bdt_cv` score to the data you have to run:
+```
+python3 predict_BDT.py [copy_of_config_file] [categories_names]
+```
+Whare [copy_of_config_file] is the one descibed in **Output of `train_BDT.py`** and [categories_names] is like "Cat_A Cat_B Cat_C".
+
+### Output of **`predict_BDT.py`** 
+It saves original data (`feature_names` + `other_branches`) adding the branches: `fold_i_` (i=0, ..., `number_of_splits`-1), `bdt` and `bdt_cv`. Data are saved in .csv and .root (TTree) format.
+It also saves feature importance plots
+
+
+
+
