@@ -18,6 +18,7 @@ ModelHandler.py is a wrapper around XGBoost. All you need to do is create a json
 * `weight_column` : Tree branch used as weight
 * `index_branch`: The branch used as index in fold splitting 
 * `prediction_category_lable`: A branch that identifies the categories (0, 1, 2, 3, ...; in the same order in which the input categories are given in predict_BDT.py
+* `out_tree_name`: Name of the TTree in the output file
 * `Name` : Customizable name that will be inserted into the output files
 * `data_path` : Path where the datasets are saved
 * `files` : List of datasets in data_path
