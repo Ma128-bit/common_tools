@@ -31,7 +31,6 @@
         "run",
         "lumi",
         "isMC",
-        "tripletMass",
         "category",
         "weight",
         "weight_MC2",
