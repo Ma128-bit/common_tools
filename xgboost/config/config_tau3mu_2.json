@@ -139,7 +139,7 @@
         {"tripletMass": ["<", 1.827]},
         {"tripletMass": [">", 1.727]}
     ],
-    "tree_name": "OutputTree",
+    "tree_name": "FinalTree",
     "output_path": "results/BDT",
     "event_fraction": 1,
     "validation_plots": true,
