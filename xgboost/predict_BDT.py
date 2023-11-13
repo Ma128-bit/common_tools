@@ -16,6 +16,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
     number_of_splits = json_file['number_of_splits']
     output_path = json_file['output_path']
     category_lable = json_file['prediction_category_lable']
+    out_tree_name = json_file['out_tree_name']
     selections_keys = [key for key in json_file.keys() if key.startswith("selections_")]
     print("pre-selections: ",selections_keys)
 
@@ -79,7 +80,7 @@ def predict_BDT_model(files, name, config, date, categories=None):
     model.data.to_csv(fileName+".csv", index=False)
     print("File CSV saved!")
     rdf = ROOT.RDF.MakeCsvDataFrame(fileName+".csv")
-    rdf.Snapshot("OutputTree", fileName+".root")
+    rdf.Snapshot(out_tree_name, fileName+".root")
     print("File ROOT saved!")
 
 
