@@ -66,6 +66,11 @@ The script **`train_BDT.py`** allows for the training of the model. It has 3 inp
 * [kfold_number]: **Optional**  ID of the fold (for example if `number_of_splits` in the configuration file is 5, kfold_number can be chosen between 0 and 4). If the parameter is not inserted the training will be performed on all folds.
 * [category_name]: **Optional** Is used to train the mode on a category. When you pass this all the selections that starts with [category_name] will be applied.
 
+NOTE: To train the model locally on different categories you must run the above command several times (equal to the number of categories) with the following precautions: 
+1° Category: `python3 train_BDT.py --config [config_file] --category "Lable_for_Cat_1"
+2° Category: `python3 train_BDT.py --config "copy_of_the_config_file_crated_in_previuous_step" --category "Lable_for_Cat_2" --condor
+etc ...
+
 ### Output of **`train_BDT.py`** 
 In the folder `output_path` it create a directory having the date in %Y%m%d-%H%M%S format as its name. In this directory there is: 
 * A copy of the configuration file
@@ -87,3 +92,4 @@ Example: `source prepare_condor.sh config/config_tau3mu.json "Cat_A Cat_B Cat_C"
 
 To submit the jobs, form the main directory, run the submission of **`output_path`/date/submit.condor** (or submit_*.condor with * = categoy name)
 
+## Training on the batch system 
