@@ -23,14 +23,14 @@
         "d0sig_max",
         "MVASoft1",
         "MVASoft2",
-        "MVASoft3",
-        "tripletMass"
+        "MVASoft3"
     ],
     "other_branches": [
         "evt",
         "run",
         "lumi",
         "isMC",
+        "tripletMass",
         "category",
         "weight",
         "weight_MC2",
