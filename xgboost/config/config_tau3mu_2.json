@@ -146,7 +146,7 @@
     "validation_plots": true,
     "number_of_splits": 5,
     "do_weight": true,
-    "weight_column": "weight_MC2",
+    "weight_column": "weight_MC",
     "index_branch": "evt",
     "prediction_category_lable": "category",
     "out_tree_name": "OutputTree",
