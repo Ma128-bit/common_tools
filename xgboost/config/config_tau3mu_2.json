@@ -51,7 +51,8 @@
         "Etamu3",
         "ChargeMu1",
         "ChargeMu2",
-        "ChargeMu3"
+        "ChargeMu3",
+        "weight_MC"
     ],
     "Y_column": "isMC",
     "BDT_0":0,
