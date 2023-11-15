@@ -1,6 +1,16 @@
 # XGBoost - Boosted Decision Trees
 Note: The code is a modified version of the one used in the [Bmm5 analysis](https://github.com/drkovalskyi/Bmm5/blob/master/MVA/ModelHandler.py)
 
+## Setting the environment
+
+```
+cmsrel CMSSW_13_0_13
+cd CMSSW_13_0_13/src
+cmsenv
+git clone https://github.com/Ma128-bit/common_tools/ .
+scram b -j20
+```
+
 ## Configuration file 
 ModelHandler.py is a wrapper around XGBoost. All you need to do is create a json configuration file that contains the following information:
 * `feature_names` : name of the branches of the tree used for the BDT training. No feature wit name that contains "fold" or "bdt" or "bdt_cv"
