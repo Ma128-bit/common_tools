@@ -23,7 +23,8 @@
         "d0sig_max",
         "MVASoft1",
         "MVASoft2",
-        "MVASoft3"
+        "MVASoft3",
+        "fv_d3D"
     ],
     "other_branches": [
         "evt",
@@ -146,7 +147,7 @@
     "validation_plots": true,
     "number_of_splits": 5,
     "do_weight": true,
-    "weight_column": "weight_MC",
+    "weight_column": "weight_MC2",
     "index_branch": "evt",
     "prediction_category_lable": "category",
     "out_tree_name": "OutputTree",
