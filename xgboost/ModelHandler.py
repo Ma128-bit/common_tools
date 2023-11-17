@@ -295,7 +295,7 @@ class ModelHandler:
             for inner_key, inner_value in feature_importance[key].items():
                 if inner_key not in mean_feature_importance['mean']:
                     mean_feature_importance['mean'][inner_key] = 0
-                mean_feature_importance['mean'][inner_key] += inner_value / len(mean_feature_importance)
+                mean_feature_importance['mean'][inner_key] += inner_value / len(feature_importance)
 
         for key, value in mean_feature_importance['mean'].items():
             mean_feature_importance['mean'][key] = round(value, 2)
