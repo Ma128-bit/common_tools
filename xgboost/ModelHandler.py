@@ -25,7 +25,10 @@ class ModelHandler:
         self.features = json_file['feature_names']
         self.all_branches = json_file['feature_names'] + json_file['other_branches']
         self.do_weight = json_file['do_weight']
-        self.weight_column = json_file['weight_column']
+        if self.do_weight: 
+            self.weight_column = json_file['weight_column']
+        else:
+            self.weight_column = None
         self.tree_name = json_file['tree_name']
         self.Y_column = json_file['Y_column']
         self.BDT_0 = json_file['BDT_0']
@@ -158,13 +161,12 @@ class ModelHandler:
         self.y_train = self.train_data[self.Y_column] #This is a pd series
         self.y_test = self.test_data[self.Y_column]
         
-        self.train_weights = self.train_data[self.weight_column]
-        self.test_weights = self.test_data[self.weight_column]
-        #print(self.train_weights)
-        
-        #Rimuovere dopo il test:
-        self.train_weights = self.train_weights.clip(upper=1)
-        self.test_weights = self.test_weights.clip(upper=1)
+        if self.do_weight: 
+            self.train_weights = self.train_data[self.weight_column]
+            self.test_weights = self.test_data[self.weight_column]
+            #print(self.train_weights)
+            self.train_weights = self.train_weights.clip(upper=1)
+            self.test_weights = self.test_weights.clip(upper=1)
                 
         self.y_train = self.y_train.apply(lambda x: x != self.BDT_0)
         self.y_test = self.y_test.apply(lambda x: x != self.BDT_0)
