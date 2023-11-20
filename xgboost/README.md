@@ -110,7 +110,8 @@ To add the predictions of each model and the overall `bdt` score and `bdt_cv` sc
 ```
 python3 predict_BDT.py [copy_of_config_file] [categories_names]
 ```
-Whare [copy_of_config_file] is the one descibed in **Output of `train_BDT.py`** and [categories_names] is like "Cat_A Cat_B Cat_C".
+* [copy_of_config_file]: **Mandatory**  The copy of the configuration file that is created by `train_BDT.py` as described in the section "**Output of `train_BDT.py`**"
+* [categories_names]: **Optional** Is the list of categories, like "Cat_A Cat_B Cat_C". If there are no categories, don't pass anything
 
 ### Output of **`predict_BDT.py`** 
 It saves original data (`feature_names` + `other_branches`) adding the branches: `fold_i_` (i=0, ..., `number_of_splits`-1), `bdt` and `bdt_cv`. Data are saved in .csv and .root (TTree) format.
