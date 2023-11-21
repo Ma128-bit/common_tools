@@ -24,7 +24,7 @@
         "MVASoft1",
         "MVASoft2",
         "MVASoft3",
-        "fv_d3D"
+        "Ptmu3"
     ],
     "other_branches": [
         "evt",
@@ -48,7 +48,6 @@
         "Etamu1",
         "Ptmu2",
         "Etamu2",
-        "Ptmu3",
         "Etamu3",
         "ChargeMu1",
         "ChargeMu2",
