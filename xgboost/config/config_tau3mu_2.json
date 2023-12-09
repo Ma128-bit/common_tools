@@ -23,8 +23,7 @@
         "d0sig_max",
         "MVASoft1",
         "MVASoft2",
-        "MVASoft3",
-        "Ptmu3"
+        "MVASoft3"
     ],
     "other_branches": [
         "evt",
@@ -48,6 +47,7 @@
         "Etamu1",
         "Ptmu2",
         "Etamu2",
+        "Ptmu3",
         "Etamu3",
         "ChargeMu1",
         "ChargeMu2",
@@ -146,14 +146,14 @@
     "validation_plots": true,
     "number_of_splits": 5,
     "do_weight": true,
-    "weight_column": "weight_MC2",
+    "weight_column": "training_weight",
     "index_branch": "evt",
     "prediction_category_lable": "category",
     "out_tree_name": "OutputTree",
     "Name": "Run2022",
     "data_path": "/lustrehome/mbuonsante/Tau_3mu/xgboost/CMSSW_13_0_13/src/xgboost/",
     "files": [
-        "Files/"
+        "Files_new/"
     ]
 }
 
