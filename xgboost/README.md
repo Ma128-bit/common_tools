@@ -108,7 +108,7 @@ To submit the jobs, form the main directory, run the submission of **`output_pat
 ## Predictions
 To add the predictions of each model and the overall `bdt` score and `bdt_cv` score to the data you have to run:
 ```
-python3 predict_BDT.py [copy_of_config_file] [categories_names]
+python3 predict_BDT.py --config [copy_of_config_file] --categories [categories_names]
 ```
 * [copy_of_config_file]: **Mandatory**  The copy of the configuration file that is created by `train_BDT.py` as described in the section "**Output of `train_BDT.py`**"
 * [categories_names]: **Optional** Is the list of categories, like "Cat_A Cat_B Cat_C". If there are no categories, don't pass anything
