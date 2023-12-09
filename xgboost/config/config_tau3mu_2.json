@@ -144,7 +144,7 @@
     "event_fraction": 1,
     "validation_plots": true,
     "number_of_splits": 5,
-    "do_weight": true,
+    "do_weight": false,
     "weight_column": "training_weight",
     "index_branch": "evt",
     "prediction_category_lable": "category",
