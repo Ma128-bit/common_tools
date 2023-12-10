@@ -34,6 +34,7 @@
         "category",
         "weight",
         "weight_MC",
+        "combine_weight",
         "training_weight",
         "Muon3_SF",
         "Muon3_SF_err",
