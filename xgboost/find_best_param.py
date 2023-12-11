@@ -45,7 +45,8 @@ def best_par(files_Run2022, name, config, date, condor):
     fixed_params = {
         'objective': 'binary:logistic',
         'silent': False,
-        'eval_metric': 'auc'
+        'eval_metric': 'auc',
+        'early_stopping_rounds': 20,
     }
     param_dist = {
         'max_depth': randint(3, 10),
@@ -57,7 +58,6 @@ def best_par(files_Run2022, name, config, date, condor):
         'gamma': uniform(0, 0.2),
         'reg_alpha': uniform(0, 0.5),
         'reg_lambda': uniform(0, 0.5),
-        'early_stopping_rounds': 20,
     }
     
     params = {**fixed_params, **param_dist}
