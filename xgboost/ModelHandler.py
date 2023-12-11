@@ -1,6 +1,5 @@
 import sys, os, subprocess, json
 from datetime import datetime
-import numpy as np
 import pandas as pd
 import uproot
 import pickle
@@ -316,6 +315,8 @@ class ModelHandler:
         
 
     def make_validation_plots(self, model_name="test"):
+        import numpy as np
+        
         """Plot ROC curves and score distributions"""
         y_pred_train = pd.Series(self.model.predict(self.x_train), name='y_pred')
         y_pred_test = pd.Series(self.model.predict(self.x_test), name='y_pred')
