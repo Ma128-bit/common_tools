@@ -1,15 +1,6 @@
 import argparse
 import warnings, sys, traceback
 #warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
-
-def warn_with_traceback(message, category, filename, lineno, file=None, line=None):
-    log = file if hasattr(file, 'write') else sys.stderr
-    traceback.print_stack(file=log)
-    log.write(warnings.formatwarning(message, category, filename, lineno, line))
-
-warnings.showwarning = warn_with_traceback
-warnings.filterwarnings("always", category=UserWarning)
-
 from scipy.stats import randint, uniform
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split
