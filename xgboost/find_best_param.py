@@ -44,7 +44,6 @@ def best_par(files_Run2022, name, config, date, condor):
     
     fixed_params = {
         'objective': 'binary:logistic',
-        'silent': False,
         'eval_metric': 'auc',
         'early_stopping_rounds': 20,
     }
