@@ -9,7 +9,7 @@ class MuonMVA(ModelHandler):
     pass
 #warnings.filterwarnings("default", category=UserWarning, module="numpy")
 
-def best_par(files_Run2022, name, config, date, condor):
+def best_par(files_Run2022, name, config, date, random=0, condor=False):
     model = MuonMVA(config)
     model.load_datasets(files, config)
 
@@ -50,13 +50,13 @@ def best_par(files_Run2022, name, config, date, condor):
     param_dist = {
         'max_depth': randint(3, 10),
         'learning_rate': uniform(0.01, 0.3),
-        'n_estimators': randint(50, 300),
-        'subsample': uniform(0.8, 0.2),
-        'colsample_bytree': uniform(0.8, 0.2),
-        'min_child_weight': randint(1, 10),
-        'gamma': uniform(0, 0.2),
-        'reg_alpha': uniform(0, 0.5),
-        'reg_lambda': uniform(0, 0.5),
+        'n_estimators': randint(200, 800),
+        'subsample': uniform(0.6, 0.4),
+        'colsample_bytree': uniform(0.6, 0.4),
+        'min_child_weight': randint(1, 15),
+        'gamma': randint(0, 1.0),
+        'reg_alpha': uniform(0, 5.0),
+        'reg_lambda': uniform(0, 5.0),
     }
     
     params = {**fixed_params, **param_dist}
@@ -64,7 +64,7 @@ def best_par(files_Run2022, name, config, date, condor):
     xgbR = xgb.XGBRegressor(**params)
     
     random_search = RandomizedSearchCV(
-        xgbR, param_distributions=param_dist, n_iter=10, scoring='roc_auc', cv=4, random_state=42, n_jobs=-1
+        xgbR, param_distributions=param_dist, n_iter=12, scoring='roc_auc', cv=4, random_state=(42+random*5), n_jobs=-1
     )
 
     print("Start fit:")
@@ -76,6 +76,15 @@ def best_par(files_Run2022, name, config, date, condor):
     
     test_auc = random_search.score(model.x_test, model.y_test)
     print("AUC sui dati di test:", test_auc)
+
+    file_out = "%s/%s_results_%d.txt" % (output_path_new, name, random)
+
+    with open(file_out, "w") as file:
+        file.write("Optimal parameters: {}\n".format(random_search.best_params_))
+        file.write("Best AUC: {}\n".format(random_search.best_score_))
+        
+        test_auc = random_search.score(model.x_test, model.y_test)
+        file.write("AUC on test data: {}\n".format(test_auc))
     
 
 if __name__ == "__main__":
@@ -83,11 +92,13 @@ if __name__ == "__main__":
 
     parser.add_argument("--config", type=str, help="Path to the JSON configuration file")
     parser.add_argument("--condor", action="store_true", help="Use of condor")
+    parser.add_argument("--random", type=int, help="random_state")
 
     args = parser.parse_args()
     
     config = args.config
     condor = args.condor
+    random = args.random
 
     date = datetime.now().strftime("%Y%m%d-%H%M%S")
     
@@ -101,4 +112,4 @@ if __name__ == "__main__":
         
     files_Run2022 = [data_path + i for i in files]
     
-    best_par(files_Run2022, name, config, date, condor)
+    best_par(files_Run2022, name, config, date, random, condor)
