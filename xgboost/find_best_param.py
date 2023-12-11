@@ -1,6 +1,15 @@
 import argparse
 import warnings
-warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
+#warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
+
+def warn_with_traceback(message, category, filename, lineno, file=None, line=None):
+    log = file if hasattr(file, 'write') else sys.stderr
+    traceback.print_stack(file=log)
+    log.write(warnings.formatwarning(message, category, filename, lineno, line))
+
+warnings.showwarning = warn_with_traceback
+warnings.filterwarnings("always", category=UserWarning)
+
 from scipy.stats import randint, uniform
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split
@@ -39,9 +48,10 @@ def best_par(files_Run2022, name, config, date, condor):
             json.dump(dati, file, indent=2)
 
 
+    print("prepare train and test datasets:")
     model.prepare_train_and_test_datasets(config, 10, 0)
-    
-    # Definisci il modello XGBoost
+    print("Done!")
+
     xgbR = xgb.XGBClassifier()
     
     # Definisci la griglia delle distribuzioni per i parametri
@@ -60,8 +70,10 @@ def best_par(files_Run2022, name, config, date, condor):
     random_search = RandomizedSearchCV(
         xgbR, param_distributions=param_dist, n_iter=10, scoring='roc_auc', cv=4, verbose=2, random_state=42, n_jobs=-1
     )
-    
+
+    print("Start fit:")
     random_search.fit(model.x_train, model.y_train, sample_weight = model.train_weights)
+    print("Done!")
     
     print("Parametri ottimali:", random_search.best_params_)
     print("Miglior AUC:", random_search.best_score_)
