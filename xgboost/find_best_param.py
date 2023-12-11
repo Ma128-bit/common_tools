@@ -1,13 +1,15 @@
+import argparse
+import warnings
+from scipy.stats import randint, uniform
+from sklearn.model_selection import RandomizedSearchCV
+from sklearn.model_selection import train_test_split
+
 warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
 from ModelHandler import *
 
 class MuonMVA(ModelHandler):
     pass
 warnings.filterwarnings("default", category=UserWarning, module="numpy")
-
-from scipy.stats import randint, uniform
-from sklearn.model_selection import RandomizedSearchCV
-from sklearn.model_selection import train_test_split
 
 def best_par(files_Run2022, name, config, date, condor):
     model = MuonMVA(config)
