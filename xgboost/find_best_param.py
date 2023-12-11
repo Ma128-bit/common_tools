@@ -64,9 +64,9 @@ def best_par(files_Run2022, name, config, date, random=0, condor=False):
 
     N_jobs=-1
     if condor==True:
-        N_jobs=256
+        N_jobs=128
     random_search = RandomizedSearchCV(
-        xgbR, param_distributions=param_dist, n_iter=12, scoring='roc_auc', cv=4, random_state=(42+random*5), n_jobs=N_jobs
+        xgbR, param_distributions=param_dist, n_iter=32, scoring='roc_auc', cv=4, random_state=(42+random*15), n_jobs=N_jobs
     )
 
     print("Start fit:")
