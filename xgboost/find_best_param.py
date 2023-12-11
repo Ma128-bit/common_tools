@@ -62,7 +62,7 @@ def best_par(files_Run2022, name, config, date, condor):
         xgbR, param_distributions=param_dist, n_iter=10, scoring='roc_auc', cv=4, verbose=2, random_state=42, n_jobs=-1
     )
     
-    random_search.fit(model.x_train, model.y_train, sample_weight = self.train_weights)
+    random_search.fit(model.x_train, model.y_train, sample_weight = model.train_weights)
     
     print("Parametri ottimali:", random_search.best_params_)
     print("Miglior AUC:", random_search.best_score_)
