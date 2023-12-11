@@ -15,7 +15,6 @@ def best_par(files_Run2022, name, config, date, random=0, condor=False):
 
     with open(config, 'r') as file:
         json_file = json.load(file)
-    number_of_splits = json_file['number_of_splits']
     output_path = json_file['output_path']
     selections_keys = [key for key in json_file.keys() if key.startswith("selections_")]
     print("pre-selections: ",selections_keys)
