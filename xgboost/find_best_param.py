@@ -52,6 +52,7 @@ def best_par(files_Run2022, name, config, date, condor):
     model.prepare_train_and_test_datasets(config, 10, 0)
     print("Done!")
 
+    """
     xgbR = xgb.XGBClassifier()
     
     # Definisci la griglia delle distribuzioni per i parametri
@@ -80,6 +81,7 @@ def best_par(files_Run2022, name, config, date, condor):
     
     test_auc = random_search.score(model.x_test, model.y_test)
     print("AUC sui dati di test:", test_auc)
+    """
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="")
