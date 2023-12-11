@@ -45,6 +45,7 @@ def best_par(files_Run2022, name, config, date, condor):
     fixed_params = {
         'objective': 'binary:logistic',
         'eval_metric': 'auc',
+        'early_stopping_rounds':20,
     }
     param_dist = {
         'max_depth': randint(3, 10),
@@ -67,7 +68,7 @@ def best_par(files_Run2022, name, config, date, condor):
     )
 
     print("Start fit:")
-    random_search.fit(model.x_train, model.y_train, verbose = True, sample_weight = model.train_weights)
+    random_search.fit(model.x_train, model.y_train, verbose = True, sample_weight = model.train_weights, eval_set=[(self.x_train, self.y_train)])
     print("Done!")
     
     print("Parametri ottimali:", random_search.best_params_)
