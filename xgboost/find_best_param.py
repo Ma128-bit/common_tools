@@ -1,6 +1,6 @@
 import argparse
 import warnings
-warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
+warnings.filterwarnings("ignore", category=UserWarning)
 from scipy.stats import randint, uniform
 from sklearn.model_selection import RandomizedSearchCV
 from ModelHandler import *
