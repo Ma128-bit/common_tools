@@ -43,6 +43,7 @@
         "ChargeMu2",
         "ChargeMu3"
     ],
+    "validation_plots": false,
     "Y_column": "isMC",
     "BDT_0":0,
     "tree_name": "FinalTree",
