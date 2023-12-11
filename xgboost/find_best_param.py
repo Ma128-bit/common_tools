@@ -67,7 +67,7 @@ def best_par(files_Run2022, name, config, date, condor):
     )
 
     print("Start fit:")
-    random_search.fit(model.x_train, model.y_train, sample_weight = model.train_weights)
+    random_search.fit(model.x_train, model.y_train, verbose = True, sample_weight = model.train_weights)
     print("Done!")
     
     print("Parametri ottimali:", random_search.best_params_)
