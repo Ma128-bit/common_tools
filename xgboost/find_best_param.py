@@ -1,6 +1,6 @@
 import argparse
 import warnings, sys, traceback
-#warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
+warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
 from scipy.stats import randint, uniform
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split
@@ -43,7 +43,7 @@ def best_par(files_Run2022, name, config, date, condor):
     model.prepare_train_and_test_datasets(config, 10, 0)
     print("Done!")
 
-    """
+    
     xgbR = xgb.XGBClassifier()
     
     # Definisci la griglia delle distribuzioni per i parametri
@@ -60,7 +60,7 @@ def best_par(files_Run2022, name, config, date, condor):
     }
     
     random_search = RandomizedSearchCV(
-        xgbR, param_distributions=param_dist, n_iter=10, scoring='roc_auc', cv=4, verbose=2, random_state=42, n_jobs=-1
+        xgbR, param_distributions=param_dist, n_iter=10, scoring='roc_auc', cv=4, verbose=0, random_state=42, n_jobs=-1
     )
 
     print("Start fit:")
@@ -72,7 +72,7 @@ def best_par(files_Run2022, name, config, date, condor):
     
     test_auc = random_search.score(model.x_test, model.y_test)
     print("AUC sui dati di test:", test_auc)
-    """
+    
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="")
