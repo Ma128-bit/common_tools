@@ -8,7 +8,7 @@ from ModelHandler import *
 
 class MuonMVA(ModelHandler):
     pass
-warnings.filterwarnings("default", category=UserWarning, module="numpy")
+#warnings.filterwarnings("default", category=UserWarning, module="numpy")
 
 def best_par(files_Run2022, name, config, date, condor):
     model = MuonMVA(config)
