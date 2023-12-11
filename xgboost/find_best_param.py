@@ -1,9 +1,8 @@
 import argparse
-import warnings, sys, traceback
+import warnings
 warnings.filterwarnings("ignore", category=UserWarning, module="numpy")
 from scipy.stats import randint, uniform
 from sklearn.model_selection import RandomizedSearchCV
-from sklearn.model_selection import train_test_split
 from ModelHandler import *
 
 class MuonMVA(ModelHandler):
