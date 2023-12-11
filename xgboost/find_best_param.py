@@ -47,19 +47,23 @@ def best_par(files_Run2022, name, config, date, condor):
     
     # Definisci la griglia delle distribuzioni per i parametri
     param_dist = {
+        'objective': "binary:logistic",
         'max_depth': randint(3, 10),
         'learning_rate': uniform(0.01, 0.3),
         'n_estimators': randint(50, 300),
+        'silent': False,
         'subsample': uniform(0.8, 0.2),
         'colsample_bytree': uniform(0.8, 0.2),
         'min_child_weight': randint(1, 10),
         'gamma': uniform(0, 0.2),
         'reg_alpha': uniform(0, 0.5),
         'reg_lambda': uniform(0, 0.5),
+        'early_stopping_rounds': 20,
+        'eval_metric': "auc",
     }
     
     random_search = RandomizedSearchCV(
-        xgbR, param_distributions=param_dist, n_iter=10, scoring='roc_auc', cv=4, verbose=0, random_state=42, n_jobs=-1
+        xgbR, param_distributions=param_dist, n_iter=10, scoring='roc_auc', cv=4, random_state=42, n_jobs=-1
     )
 
     print("Start fit:")
