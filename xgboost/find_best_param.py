@@ -11,7 +11,7 @@ class MuonMVA(ModelHandler):
 
 def best_par(files_Run2022, name, config, date, random=0, condor=False):
     model = MuonMVA(config)
-    model.load_datasets(files, config)
+    model.load_datasets(files_Run2022, config)
 
     with open(config, 'r') as file:
         json_file = json.load(file)
