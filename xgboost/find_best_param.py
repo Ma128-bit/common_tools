@@ -53,7 +53,7 @@ def best_par(files_Run2022, name, config, date, random=0, condor=False):
         'subsample': uniform(0.6, 0.4),
         'colsample_bytree': uniform(0.6, 0.4),
         'min_child_weight': randint(1, 15),
-        'gamma': randint(0.1, 1.0),
+        'gamma': uniform(0.1, 1.0),
         'reg_alpha': uniform(0, 5.0),
         'reg_lambda': uniform(0, 5.0),
     }
