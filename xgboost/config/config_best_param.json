@@ -43,6 +43,22 @@
         "ChargeMu2",
         "ChargeMu3"
     ],
+    "selections_1!": [
+        {"dimu_OS1": ["<", 1.064]},
+        {"dimu_OS1": [">", 0.974]}
+    ],
+    "selections_2!": [
+        {"dimu_OS2": ["<", 1.064]},
+        {"dimu_OS2": [">", 0.974]}
+    ],
+    "selections_3!": [
+        {"dimu_OS1": ["<", 0.792]},
+        {"dimu_OS1": [">", 0.772]}
+    ],
+    "selections_4!": [
+        {"dimu_OS2": ["<", 0.792]},
+        {"dimu_OS2": [">", 0.772]}
+    ],
     "validation_plots": false,
     "Y_column": "isMC",
     "BDT_0":0,
