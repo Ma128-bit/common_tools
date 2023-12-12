@@ -49,13 +49,13 @@ def best_par(files_Run2022, name, config, date, random=0, condor=False):
     }
     """
     param_dist = {
-        'max_depth': randint(3, 10),
-        'learning_rate': uniform(0.01, 0.3),
-        'n_estimators': randint(200, 800),
-        'subsample': uniform(0.6, 0.4),
-        'colsample_bytree': uniform(0.6, 0.4),
+        'max_depth': range(3,10,1),
+        'learning_rate': [i/50.0 for i in range(1,15)],
+        'n_estimators': [i*100 for i in range(1,10)],
+        'subsample': [i/10.0 for i in range(6,10)],
+        'colsample_bytree': [i/10.0 for i in range(6,10)],
         'min_child_weight': randint(1, 15),
-        'gamma': uniform(0.1, 1.0),
+        'gamma': [i/10.0 for i in range(1,10)],
         'reg_alpha': uniform(0, 5.0),
         'reg_lambda': uniform(0, 5.0),
         'objective': ['binary:logistic'],
