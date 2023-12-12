@@ -62,11 +62,11 @@ def best_par(files_Run2022, name, config, date, random=0, condor=False):
     
     xgbR = xgb.XGBRegressor(**params)
 
-    N_jobs=128
+    N_jobs=-1
     if condor==True:
-        N_jobs=128
+        N_jobs=-1
     random_search = RandomizedSearchCV(
-        xgbR, param_distributions=param_dist, n_iter=32, verbose=2, scoring='roc_auc', cv=4, random_state=(42+random*15), n_jobs=N_jobs
+        xgbR, param_distributions=param_dist, n_iter=4, verbose=2, scoring='roc_auc', cv=4, random_state=(42+random*15), n_jobs=N_jobs
     )
 
     print("Start fit:")
