@@ -70,22 +70,14 @@ def best_par(files_Run2022, name, config, date, random=0, condor=False):
     if condor==True:
         N_jobs=-1
         
-    cv = StratifiedKFold(n_splits=2, shuffle=True, random_state=(42 + random * 15))
+    cv = StratifiedKFold(n_splits=4, shuffle=True, random_state=(42 + random * 15))
     
     random_search = RandomizedSearchCV(
-        xgbR, param_distributions=param_dist, n_iter=10, verbose=2, scoring='roc_auc', cv=cv, random_state=(42 + random * 15), n_jobs=N_jobs
+        xgbR, param_distributions=param_dist, n_iter=60, verbose=2, scoring='roc_auc', cv=cv, random_state=(42 + random * 15), n_jobs=N_jobs
     )
     
     random_search.fit(model.x_train, model.y_train, verbose=False, sample_weight=model.train_weights, eval_set=[(model.x_train, model.y_train)])
-    """    
-    random_search = RandomizedSearchCV(
-        xgbR, param_distributions=param_dist, n_iter=10, verbose=2, scoring='roc_auc', cv=2, random_state=(42+random*15), n_jobs=N_jobs
-    )
 
-    print("Start fit:")
-    random_search.fit(model.x_train, model.y_train, verbose = False, sample_weight = model.train_weights, eval_set=[(model.x_train, model.y_train)])
-    print("Done!")
-    """
     print("Parametri ottimali:", random_search.best_params_)
     print("Miglior AUC:", random_search.best_score_)
     
