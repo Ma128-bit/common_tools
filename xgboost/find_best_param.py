@@ -40,12 +40,13 @@ def best_par(files_Run2022, name, config, date, random=0, condor=False):
     print("prepare train and test datasets:")
     model.prepare_train_and_test_datasets(config, 10, 0)
     print("Done!")
-    
+    """
     fixed_params = {
         'objective': 'binary:logistic',
         'eval_metric': 'auc',
         'early_stopping_rounds':20,
     }
+    """
     param_dist = {
         'max_depth': randint(3, 10),
         'learning_rate': uniform(0.01, 0.3),
@@ -56,11 +57,14 @@ def best_par(files_Run2022, name, config, date, random=0, condor=False):
         'gamma': uniform(0.1, 1.0),
         'reg_alpha': uniform(0, 5.0),
         'reg_lambda': uniform(0, 5.0),
+        'objective': ['binary:logistic'],
+        'eval_metric': ['auc'],
+        'early_stopping_rounds':[20],
     }
     
-    params = {**fixed_params, **param_dist}
+    #params = {**fixed_params, **param_dist}
     
-    xgbR = xgb.XGBRegressor(**params)
+    xgbR = xgb.XGBRegressor()
 
     N_jobs=-1
     if condor==True:
