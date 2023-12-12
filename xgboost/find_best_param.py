@@ -68,12 +68,12 @@ def best_par(files_Run2022, name, config, date, random=0, condor=False):
     xgbR = xgb.XGBRegressor()
     N_jobs=-1
     if condor==True:
-        N_jobs=256
+        N_jobs=-1
         
     cv = StratifiedKFold(n_splits=4, shuffle=True, random_state=(42 + random * 15))
     
     random_search = RandomizedSearchCV(
-        xgbR, param_distributions=param_dist, n_iter=512, verbose=2, scoring='roc_auc', cv=cv, random_state=(42 + random * 15), n_jobs=N_jobs
+        xgbR, param_distributions=param_dist, n_iter=60, verbose=2, scoring='roc_auc', cv=cv, random_state=(42 + random * 15), n_jobs=N_jobs
     )
     
     random_search.fit(model.x_train, model.y_train, verbose=False, sample_weight=model.train_weights, eval_set=[(model.x_train, model.y_train)])
