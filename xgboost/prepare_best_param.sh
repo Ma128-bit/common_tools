@@ -39,7 +39,7 @@ mv temp.json "$file_json_new"
 cp ./templates/submit.condor ./$real_out
 sed -i "s#launch_training.sh#launch_best_param.sh#g" ./${real_out}/submit.condor
 sed -i "s#PATH#${real_out}#g" ./${real_out}/submit.condor
-number_of_submit=10
+number_of_submit=20
 echo "request_cpus​=​16" >> "./${real_out}/submit.condor"
 echo "request_memory=4096" >> "./${real_out}/submit.condor"
 echo "queue ${number_of_submit}" >> "./${real_out}/submit.condor"
