@@ -41,7 +41,7 @@ sed -i "s#launch_training.sh#launch_best_param.sh#g" ./${real_out}/submit.condor
 sed -i "s#PATH#${real_out}#g" ./${real_out}/submit.condor
 number_of_submit=50
 echo "request_cpus=16" >> "./${real_out}/submit.condor"
-echo "request_memory=4096" >> "./${real_out}/submit.condor"
+echo "request_memory=8192" >> "./${real_out}/submit.condor"
 echo "queue ${number_of_submit}" >> "./${real_out}/submit.condor"
 chmod a+x ./${real_out}/submit.condor
 
