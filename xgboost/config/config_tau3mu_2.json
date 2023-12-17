@@ -20,6 +20,7 @@
         "mindca_iso",
         "trkRel",
         "d0sig",
+        "Ptmu3",
         "d0sig_max",
         "MVASoft1",
         "MVASoft2",
@@ -48,7 +49,6 @@
         "Etamu1",
         "Ptmu2",
         "Etamu2",
-        "Ptmu3",
         "Etamu3",
         "ChargeMu1",
         "ChargeMu2",
@@ -71,72 +71,24 @@
         {"early_stopping_rounds": 20},
         {"eval_metric": "auc"}
     ],
-    "Cat_A_1!": [
-        {"dimu_OS1": ["<", 1.044]},
-        {"dimu_OS1": [">", 0.994]}
-    ],
-    "Cat_A_2!": [
-        {"dimu_OS2": ["<", 1.044]},
-        {"dimu_OS2": [">", 0.994]}
-    ],
-    "Cat_A_3!": [
-        {"dimu_OS1": ["<", 0.79]},
-        {"dimu_OS1": [">", 0.77]}
-    ],
-    "Cat_A_4!": [
-        {"dimu_OS2": ["<", 0.79]},
-        {"dimu_OS2": [">", 0.77]}
-    ],
-    "Cat_A_5": [
+    "Cat_A_1": [
         {"category": ["==", 0]}
     ],
-    "Cat_A_bkg_6!": [
+    "Cat_A_bkg_2!": [
         {"tripletMass": ["<", 1.801]},
         {"tripletMass": [">", 1.753]}
     ],
-    "Cat_B_1!": [
-        {"dimu_OS1": ["<", 1.053]},
-        {"dimu_OS1": [">", 0.985]}
-    ],
-    "Cat_B_2!": [
-        {"dimu_OS2": ["<", 1.053]},
-        {"dimu_OS2": [">", 0.985]}
-    ],
-    "Cat_B_3!": [
-        {"dimu_OS1": ["<", 0.79]},
-        {"dimu_OS1": [">", 0.77]}
-    ],
-    "Cat_B_4!": [
-        {"dimu_OS2": ["<", 0.79]},
-        {"dimu_OS2": [">", 0.77]}
-    ],
-    "Cat_B_5": [
+    "Cat_B_1": [
         {"category": ["==", 1]}
     ],
-    "Cat_B_bkg_6!": [
+    "Cat_B_bkg_2!": [
         {"tripletMass": ["<", 1.815]},
         {"tripletMass": [">", 1.739]}
     ],
-    "Cat_C_1!": [
-        {"dimu_OS1": ["<", 1.064]},
-        {"dimu_OS1": [">", 0.974]}
-    ],
-    "Cat_C_2!": [
-        {"dimu_OS2": ["<", 1.064]},
-        {"dimu_OS2": [">", 0.974]}
-    ],
-    "Cat_C_3!": [
-        {"dimu_OS1": ["<", 0.79]},
-        {"dimu_OS1": [">", 0.77]}
-    ],
-    "Cat_C_4!": [
-        {"dimu_OS2": ["<", 0.79]},
-        {"dimu_OS2": [">", 0.77]}
-    ],
-    "Cat_C_5": [
+    "Cat_C_1": [
         {"category": ["==", 2]}
     ],
-    "Cat_C_bkg_6!": [
+    "Cat_C_bkg_2!": [
         {"tripletMass": ["<", 1.827]},
         {"tripletMass": [">", 1.727]}
     ],
