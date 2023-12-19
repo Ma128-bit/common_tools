@@ -69,6 +69,17 @@
         {"early_stopping_rounds": 20},
         {"eval_metric": "auc"}
     ],
+    "selections_1!": [
+        {"L1_DoubleMu0_er1p5": ["!=", 1]},
+        {"L1_DoubleMu0_er1p4": ["!=", 1]},
+        {"L1_DoubleMu4_dR1p2": ["!=", 1]},
+        {"L1_DoubleMu4p5_dR1p2": ["!=", 1]},
+        {"L1_DoubleMu0_er2p0": ["!=", 1]},
+        {"L1_DoubleMu0_er2p0_bk": ["!=", 1]},
+        {"L1_TripleMu_5SQ_3SQ_0": ["!=", 1]},
+        {"L1_TripleMu_5SQ_3SQ_0OQ": ["!=", 1]},
+        {"L1_TripleMu_3SQ_2p5SQ_0OQ_Mass_Max12": ["==", 1], "L1_TripleMu_2SQ_1p5SQ_0OQ_Mass_Max12": ["==", 1]}
+    ],
     "Cat_A_1": [
         {"category": ["==", 0]}
     ],
