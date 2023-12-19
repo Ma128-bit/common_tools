@@ -41,7 +41,16 @@
         "Etamu3",
         "ChargeMu1",
         "ChargeMu2",
-        "ChargeMu3"
+        "ChargeMu3",
+        "L1_DoubleMu0_er1p5", 
+        "L1_DoubleMu0_er1p4",
+        "L1_DoubleMu4_dR1p2",
+        "L1_DoubleMu4p5_dR1p2",
+        "L1_DoubleMu0_er2p0",
+        "L1_DoubleMu0_er2p0_bk","L1_TripleMu_5SQ_3SQ_0",
+        "L1_TripleMu_5SQ_3SQ_0OQ",
+        "L1_TripleMu_3SQ_2p5SQ_0OQ_Mass_Max12",
+        "L1_TripleMu_2SQ_1p5SQ_0OQ_Mass_Max12"
     ],
     "Y_column": "isMC",
     "BDT_0":0,
