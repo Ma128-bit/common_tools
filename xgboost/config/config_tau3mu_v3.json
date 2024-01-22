@@ -13,7 +13,8 @@
         "d0sig_max",
         "MVASoft1",
         "MVASoft2",
-        "MVASoft3"
+        "MVASoft3",
+        "Pt_tripl"
     ],
     "other_branches": [
         "evt",
