@@ -4,13 +4,17 @@
         "tKink",
         "segmComp",
         "fv_nC",
+        "fv_dphi3D",
         "fv_d3Dsig",
         "mindca_iso",
+        "trkRel",
         "d0sig",
         "Ptmu3",
         "d0sig_max",
+        "MVASoft1",
         "MVASoft2",
-        "MVASoft3"
+        "MVASoft3",
+        "Pt_tripl"
     ],
     "other_branches": [
         "evt",
@@ -55,6 +59,11 @@
         {"reg_lambda": 0.1},
         {"early_stopping_rounds": 20},
         {"eval_metric": "auc"}
+    ],
+    "selections_1": [
+        {"MVASoft1": [">", 0.4]},
+        {"MVASoft2": [">", 0.4]},
+        {"MVASoft3": [">", 0.4]}
     ],
     "Cat_A_1": [
         {"category": ["==", 0]}
