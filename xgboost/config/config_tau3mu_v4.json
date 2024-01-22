@@ -90,7 +90,7 @@
     "output_path": "results/BDT",
     "event_fraction": 1,
     "validation_plots": true,
-    "number_of_splits": 5,
+    "number_of_splits": 10,
     "do_weight": true,
     "weight_column": "training_weight",
     "index_branch": "evt",
