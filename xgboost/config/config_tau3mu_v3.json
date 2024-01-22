@@ -70,14 +70,6 @@
         {"early_stopping_rounds": 20},
         {"eval_metric": "auc"}
     ],
-    "selections_1": [
-        {"MVASoft1": [">", 0.4]},
-        {"MVASoft2": [">", 0.4]},
-        {"MVASoft3": [">", 0.4]},
-        {"segmComp": [">", 0.05]},
-        {"cLP": ["<", 9]},
-        {"fv_dphi3D": ["<", 0.05]}
-    ],
     "Cat_A_1": [
         {"category": ["==", 0]}
     ],
