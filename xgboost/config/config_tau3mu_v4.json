@@ -42,7 +42,8 @@
         "Etamu3",
         "ChargeMu1",
         "ChargeMu2",
-        "ChargeMu3"
+        "ChargeMu3",
+	"tripletMassReso"
     ],
     "Y_column": "isMC",
     "BDT_0":0,
@@ -51,19 +52,14 @@
         {"max_depth": 5},
         {"learning_rate": 0.01},
         {"n_estimators": 1000},
-        {"subsample": 0.7},
-        {"colsample_bytree": 0.7},
+        {"subsample": 0.8},
+        {"colsample_bytree": 0.8},
         {"min_child_weight": 5},
         {"gamma": 0.1},
-        {"reg_alpha": 0.2},
-        {"reg_lambda": 0.2},
+        {"reg_alpha": 0.01},
+        {"reg_lambda": 0.1},
         {"early_stopping_rounds": 20},
         {"eval_metric": "auc"}
-    ],
-    "selections_1": [
-        {"MVASoft1": [">", 0.4]},
-        {"MVASoft2": [">", 0.4]},
-        {"MVASoft3": [">", 0.4]}
     ],
     "Cat_A_1": [
         {"category": ["==", 0]}
@@ -72,12 +68,18 @@
         {"tripletMass": ["<", 1.801]},
         {"tripletMass": [">", 1.753]}
     ],
+    "Cat_A_sig_3!": [
+        {"evt": ["<", 9000000]}
+    ],
     "Cat_B_1": [
         {"category": ["==", 1]}
     ],
     "Cat_B_bkg_2!": [
         {"tripletMass": ["<", 1.815]},
         {"tripletMass": [">", 1.739]}
+    ],
+    "Cat_B_sig_3!": [
+        {"evt": ["<", 9000000]} 
     ],
     "Cat_C_1": [
         {"category": ["==", 2]}
@@ -86,11 +88,14 @@
         {"tripletMass": ["<", 1.827]},
         {"tripletMass": [">", 1.727]}
     ],
+    "Cat_C_sig_3!": [
+        {"evt": ["<", 9000000]} 
+    ],
     "tree_name": "FinalTree",
     "output_path": "results/BDT",
     "event_fraction": 1,
     "validation_plots": true,
-    "number_of_splits": 10,
+    "number_of_splits": 5,
     "do_weight": true,
     "weight_column": "training_weight",
     "index_branch": "evt",
