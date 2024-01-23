@@ -69,7 +69,7 @@
         {"tripletMass": [">", 1.753]}
     ],
     "Cat_A_sig_3!": [
-        {"evt": ["<", 9000000]}
+        {"evt": ["<", 900000000]}
     ],
     "Cat_B_1": [
         {"category": ["==", 1]}
@@ -79,7 +79,7 @@
         {"tripletMass": [">", 1.739]}
     ],
     "Cat_B_sig_3!": [
-        {"evt": ["<", 9000000]} 
+        {"evt": ["<", 900000000]} 
     ],
     "Cat_C_1": [
         {"category": ["==", 2]}
@@ -89,7 +89,7 @@
         {"tripletMass": [">", 1.727]}
     ],
     "Cat_C_sig_3!": [
-        {"evt": ["<", 9000000]} 
+        {"evt": ["<", 900000000]} 
     ],
     "tree_name": "FinalTree",
     "output_path": "results/BDT",
