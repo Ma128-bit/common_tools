@@ -13,31 +13,31 @@ declare -a reg_alpha=(0.01 0.1 0.5 1)
 declare -a reg_lambda=(0.01 0.1 0.5 1)
 
 for i in {0..7}
-  random_I_max_depth=$((RANDOM % ${#max_depth[@]}))
+  random_I_max_depth=$((RANDOM % 4))
   random_max_depth=${max_depth[$random_I_max_depth]}
   
-  random_I_learning_rate=$((RANDOM % ${#learning_rate[@]}))
+  random_I_learning_rate=$((RANDOM % 4))
   random_learning_rate=${max_depth[$random_I_learning_rate]}
   
-  random_I_n_estimators=$((RANDOM % ${#n_estimators[@]}))
+  random_I_n_estimators=$((RANDOM % 3))
   random_n_estimators=${max_depth[$random_I_n_estimators]}
   
-  random_I_subsample=$((RANDOM % ${#subsample[@]}))
+  random_I_subsample=$((RANDOM % 3))
   random_subsample=${max_depth[$random_I_subsample]}
 
-  random_I_colsample_bytree=$((RANDOM % ${#colsample_bytree[@]}))
+  random_I_colsample_bytree=$((RANDOM % 3))
   random_colsample_bytree=${max_depth[$random_I_colsample_bytree]}
 
-  random_I_min_child_weight=$((RANDOM % ${#min_child_weight[@]}))
+  random_I_min_child_weight=$((RANDOM % 4))
   random_min_child_weight=${max_depth[$random_I_min_child_weight]}
 
-  random_I_gamma=$((RANDOM % ${#gamma[@]}))
+  random_I_gamma=$((RANDOM % 4))
   random_gamma=${max_depth[$random_I_gamma]}
 
-  random_I_reg_alpha=$((RANDOM % ${#reg_alpha[@]}))
+  random_I_reg_alpha=$((RANDOM % 4))
   random_reg_alpha=${max_depth[$random_I_reg_alpha]}
 
-  random_I_reg_lambda=$((RANDOM % ${#reg_lambda[@]}))
+  random_I_reg_lambda=$((RANDOM % 4))
   random_reg_lambda=${max_depth[$random_I_reg_lambda]}
 
 
