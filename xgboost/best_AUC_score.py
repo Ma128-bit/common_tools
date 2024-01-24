@@ -1,9 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 n_splits = 5
-out_path = "results/BDT/"
+out_path = "results/ROCurvs/"
+in_path = "results/BDT/"
 
-def best_AUC_in_category(name, category, ax, type=None, sel = "max", weights = True):
+def best_AUC_in_category(name, category, ax, type="all", sel = "max", weights = True):
     if weights == True:
         w = "-w"
         w2 = "_w"
@@ -23,7 +24,7 @@ def best_AUC_in_category(name, category, ax, type=None, sel = "max", weights = T
         auc_test = -1
     auc_train = -1
     for i in range(n_splits):
-        file_name = out_path + name +"/" + f"Run2022-Event{i}" + file
+        file_name = in_path + name +"/" + f"Run2022-Event{i}" + file
         loaded_data = np.load(file_name)
         auc_test_temp = loaded_data[w3+"auc_test"]
         if((auc_test_temp>auc_test and sel=="max") or (auc_test_temp<auc_test and sel=="min")):
@@ -43,7 +44,7 @@ def best_AUC_in_category(name, category, ax, type=None, sel = "max", weights = T
         ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
         ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
 
-def draw_category(names, category, type=None, sel = "max", weights = True):
+def draw_category(names, category, type="all", sel = "max", weights = True):
     fig, ax = plt.subplots()
     plt.grid(which='both', axis='both')
     for name in names:
@@ -55,14 +56,17 @@ def draw_category(names, category, type=None, sel = "max", weights = True):
     ax.set_title("ROC curves")
     ax.legend()
     fig.set_tight_layout(True)
-    fig.savefig(out_path +"Category_"+category+"_sel_"+sel+"-roc_"+ names[0] +"_"+ names[len(names)-1]+".pdf")
+    fig.savefig(out_path +"Category_"+category+"_type"+type+"_sel_"+sel+"-roc_"+ names[0] +"_"+ names[len(names)-1]+".pdf")
 
 
 if __name__ == "__main__":
     files = ["20240124-104401", "20240124-122044", "20240124-132322"]
-    draw_category(files, "A")
-    draw_category(files, "B")
-    draw_category(files, "C")
+    draw_category(files, "A", type="test")
+    draw_category(files, "B", type="test")
+    draw_category(files, "C", type="test")
+    draw_category(files, "A", type="train")
+    draw_category(files, "B", type="train")
+    draw_category(files, "C", type="train")
 
 
 
