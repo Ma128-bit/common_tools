@@ -103,6 +103,7 @@ def draw_category(names, category, type="all", sel = "max", weights = True):
 
 def histo_AMS(names, category, type="all", weights = True):
     fig, ax = plt.subplots()
+    fig.set_size_inches(6, 8)
     #plt.grid(which='both', axis='both')
     auc_test = []
     auc_train = []
@@ -117,7 +118,8 @@ def histo_AMS(names, category, type="all", weights = True):
     ax.set_ylabel("AUC")
     ax.set_ylim([0.875, 0.95])
     #ax.set_yscale("log")
-    ax.set_title("ROC curves")
+    ax.set_title("AUC score")
+    
     #ax.legend()
     fig.savefig(out_path +"Category_"+category+"_type_"+type+"-auc_"+ names[0].split('-')[0]+".pdf")
 
