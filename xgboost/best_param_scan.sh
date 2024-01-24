@@ -4,7 +4,7 @@
 
 declare -a max_depth=(3 5 7 10)
 declare -a learning_rate=(0.01 0.05 0.1 0.3)
-declare -a n_estimators=(300 600 100)
+declare -a n_estimators=(200 400 600 800 1000)
 declare -a subsample=(0.7 0.8 0.9)
 declare -a colsample_bytree=(0.7 0.8 0.9)
 declare -a min_child_weight=(2 5 8 11)
@@ -19,7 +19,7 @@ for i in {0..0}; do
   random_I_learning_rate=$((RANDOM % 4))
   random_learning_rate=${learning_rate[$random_I_learning_rate]}
   
-  random_I_n_estimators=$((RANDOM % 3))
+  random_I_n_estimators=$((RANDOM % 5))
   random_n_estimators=${n_estimators[$random_I_n_estimators]}
   
   random_I_subsample=$((RANDOM % 3))
