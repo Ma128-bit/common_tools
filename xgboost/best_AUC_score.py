@@ -118,7 +118,7 @@ def histo_AMS(names, category, type="all", weights = True):
     #ax.set_yscale("log")
     ax.set_title("ROC curves")
     #ax.legend()
-    fig.savefig(out_path +"Category_"+category+"_type_"+type+"_sel_"+sel+"-auc_"+ names[0].split('-')[0]+".pdf")
+    fig.savefig(out_path +"Category_"+category+"_type_"+type+"-auc_"+ names[0].split('-')[0]+".pdf")
 
 
 if __name__ == "__main__":
