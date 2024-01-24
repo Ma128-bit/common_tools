@@ -1,6 +1,7 @@
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
 n_splits = 5
 out_path = "results/ROCurvs/"
 in_path = "results/BDT/"
@@ -103,8 +104,11 @@ def draw_category(names, category, type="all", sel = "max", weights = True):
 
 def histo_AMS(names, category, type="all", weights = True):
     fig, ax = plt.subplots()
-    fig.set_size_inches(8, 6)
-    plt.subplots_adjust(bottom=0.2)
+    fig.set_size_inches(9, 6)
+    plt.subplots_adjust(bottom=0.25)
+    plt.subplots_adjust(top=0.05)
+    plt.subplots_adjust(left=0.05)
+    plt.subplots_adjust(right=0.05)
     #plt.grid(which='both', axis='both')
     auc_test = []
     auc_train = []
@@ -112,8 +116,8 @@ def histo_AMS(names, category, type="all", weights = True):
         vector = best_AUC_in_category(name, category, weights)
         auc_test.append(vector[1])
         auc_train.append(vector[0])
-        
-    plt.bar(names, auc_test)
+    colori = ['red' if valore > (max(auc_test)-min(auc_test))%10 else 'blue' for valore in auc_test]
+    plt.bar(names, auc_test, color=colori)
     plt.xticks(rotation='vertical')
     #ax.set_xlabel("File")
     ax.set_ylabel("AUC")
