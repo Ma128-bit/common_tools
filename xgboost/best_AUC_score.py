@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 n_splits = 5
 out_path = "results/BDT/"
 
-def best_AUC_in_category(name, category, ax, sel = "max", weights = True):
+def best_AUC_in_category(name, category, ax, type=None, sel = "max", weights = True):
     if weights == True:
         w = "-w"
         w2 = "_w"
@@ -34,15 +34,20 @@ def best_AUC_in_category(name, category, ax, sel = "max", weights = True):
             fpr_train = loaded_data["fpr_train"+w2]
             tpr_train = loaded_data["tpr_train"+w2]
         del loaded_data
-        
-    ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
-    ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
 
-def draw_category(names, category, sel = "max", weights = True):
+    if type = "train":
+        ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
+    elif type = "test":
+        ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
+    else:
+        ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
+        ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
+
+def draw_category(names, category, type=None, sel = "max", weights = True):
     fig, ax = plt.subplots()
     plt.grid(which='both', axis='both')
     for name in names:
-        best_AUC_in_category(name, category, ax, sel, weights)
+        best_AUC_in_category(name, category, ax, type, sel, weights)
     ax.set_xlabel("bkg eff")
     ax.set_ylabel("sig eff")
     ax.set_xlim([0.05, 1])
@@ -54,7 +59,9 @@ def draw_category(names, category, sel = "max", weights = True):
 
 
 if __name__ == "__main__":
-    draw_category(["20240123-092539, 20240124-104401"], "A")
+    draw_category(["20240124-104401"], "A")
+    draw_category(["20240124-104401"], "B")
+    draw_category(["20240124-104401"], "C")
 
 
 
