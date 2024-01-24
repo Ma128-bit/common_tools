@@ -59,9 +59,10 @@ def draw_category(names, category, type=None, sel = "max", weights = True):
 
 
 if __name__ == "__main__":
-    draw_category(["20240124-104401"], "A")
-    draw_category(["20240124-104401"], "B")
-    draw_category(["20240124-104401"], "C")
+    files = ["20240124-104401, 20240124-122044", "20240124-132322"]
+    draw_category(files, "A")
+    draw_category(files, "B")
+    draw_category(files, "C")
 
 
 
