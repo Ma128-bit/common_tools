@@ -66,7 +66,6 @@ if __name__ == "__main__":
     list = os.listdir(in_path)
     files = [i for i in list if os.path.isdir(os.path.join(in_path, i)) and "20240124" in i]
 
-    return directory_list
     draw_category(files, "A", type="test")
     draw_category(files, "B", type="test")
     draw_category(files, "C", type="test")
