@@ -54,7 +54,7 @@ def draw_category(names, category, sel = "max", weights = True):
 
 
 if __name__ == "__main__":
-    draw_category(["20240124-104401"], "A")
+    draw_category(["20240123-092539, 20240124-104401"], "A")
 
 
 
