@@ -122,7 +122,7 @@ def histo_AMS(names, category, type="test", weights = True):
     plt.xticks(rotation='vertical')
     #ax.set_xlabel("File")
     ax.set_ylabel("AUC")
-    ax.set_ylim([0.875, 0.95])
+    ax.set_ylim([min(auc_test)-0.015, max(auc_test)+0.015])
     #ax.set_yscale("log")
     ax.set_title("AUC score")
     
