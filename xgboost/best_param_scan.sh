@@ -12,7 +12,7 @@ declare -a gamma=(0.01 0.1 0.5 1)
 declare -a reg_alpha=(0.01 0.1 0.5 1)
 declare -a reg_lambda=(0.01 0.1 0.5 1)
 
-for i in {0..30}; do
+for i in {0..60}; do
   random_I_max_depth=$((RANDOM % 4))
   random_max_depth=${max_depth[$random_I_max_depth]}
   
