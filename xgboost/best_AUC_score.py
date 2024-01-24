@@ -35,8 +35,8 @@ def best_AUC_in_category(name, category, ax, sel = "max", weights = True):
             tpr_train = loaded_data["tpr_train"+w2]
         del loaded_data
         
-    ax.plot(fpr_train, tpr_train, label="train AUC = {:.6f}".format(auc_train))
-    ax.plot(fpr_test, tpr_test, label="test AUC = {:.6f}".format(auc_test))
+    ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
+    ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
 
 def draw_category(names, category, sel = "max", weights = True):
     fig, ax = plt.subplots()
@@ -48,9 +48,9 @@ def draw_category(names, category, sel = "max", weights = True):
     ax.set_xlim([0.05, 1])
     ax.set_ylim([0.5, 1])
     ax.set_title("ROC curves")
-    ax.legend('lower right')
+    ax.legend()
     fig.set_tight_layout(True)
-    fig.savefig(out_path +"global-roc_"+ names[0] + names[len(names)-1]+".pdf")
+    fig.savefig(out_path +"global-roc_"+ names[0] +"_"+ names[len(names)-1]+".pdf")
 
 
 if __name__ == "__main__":
