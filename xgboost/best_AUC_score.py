@@ -43,7 +43,7 @@ def best_AUC_in_category(name, category, ax, type="all", sel = "max", weights = 
             tpr_train = loaded_data["tpr_train"+w2]
         del loaded_data
 
-    if auc_test>trs_test:
+    if auc_test>trs_test and sel = "max":
         if type == "train":
             ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
         elif type == "test":
@@ -51,6 +51,16 @@ def best_AUC_in_category(name, category, ax, type="all", sel = "max", weights = 
         else:
             ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
             ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
+    else:
+        if type == "train":
+            ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
+        elif type == "test":
+            ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
+        else:
+            ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
+            ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
+
+
 
 def draw_category(names, category, type="all", sel = "max", weights = True):
     fig, ax = plt.subplots()
@@ -74,12 +84,12 @@ if __name__ == "__main__":
     list = os.listdir(in_path)
     files = [i for i in list if os.path.isdir(os.path.join(in_path, i)) and "20240124" in i]
 
-    draw_category(files, "A", type="test")
-    draw_category(files, "B", type="test")
-    draw_category(files, "C", type="test")
-    draw_category(files, "A", type="train")
-    draw_category(files, "B", type="train")
-    draw_category(files, "C", type="train")
+    draw_category(files, "A", type="test", sel ="min")
+    draw_category(files, "B", type="test", sel ="min")
+    draw_category(files, "C", type="test", sel ="min")
+    draw_category(files, "A", type="train", sel ="min")
+    draw_category(files, "B", type="train", sel ="min")
+    draw_category(files, "C", type="train", sel ="min")
 
 
 
