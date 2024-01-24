@@ -12,7 +12,7 @@ declare -a gamma=(0.01 0.1 0.5 1)
 declare -a reg_alpha=(0.01 0.1 0.5 1)
 declare -a reg_lambda=(0.01 0.1 0.5 1)
 
-for i in {0..0}; do
+for i in {0..30}; do
   random_I_max_depth=$((RANDOM % 4))
   random_max_depth=${max_depth[$random_I_max_depth]}
   
@@ -40,6 +40,8 @@ for i in {0..0}; do
   random_I_reg_lambda=$((RANDOM % 4))
   random_reg_lambda=${reg_lambda[$random_I_reg_lambda]}
 
+  echo "Parameters: ${random_max_depth}, ${random_learning_rate}, ${random_n_estimators}, ${random_subsample}, ${random_colsample_bytree}, ${random_min_child_weight}, ${random_gamma}, ${random_reg_alpha}, ${random_reg_lambda}"
+
   cp ./config/config_tau3mu_template.json ./config_tau3mu.json
   sed -i "s#max_depth_val#${random_max_depth}#g" ./config_tau3mu.json
   sed -i "s#learning_rate_val#${random_learning_rate}#g" ./config_tau3mu.json
@@ -58,7 +60,8 @@ for i in {0..0}; do
   condor_submit -name ettore "${path}/submit_Cat_A.condor"
   condor_submit -name ettore "${path}/submit_Cat_B.condor"
   condor_submit -name ettore "${path}/submit_Cat_C.condor"
+
+  rm config_tau3mu.json
   
-  echo "Elemento casuale: ${random_max_depth}, ${random_learning_rate}, ${random_n_estimators}, ${random_subsample}, ${random_colsample_bytree}, ${random_min_child_weight}, ${random_gamma}, ${random_reg_alpha}, ${random_reg_lambda}"
   done
   
