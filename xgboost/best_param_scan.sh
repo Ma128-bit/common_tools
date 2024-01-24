@@ -57,11 +57,11 @@ for i in {0..60}; do
 
   echo "submit ${path}"
   
-  echo "${path}, ${random_max_depth}, ${random_learning_rate}, ${random_n_estimators}, ${random_subsample}, ${random_colsample_bytree}, ${random_min_child_weight}, ${random_gamma}, ${random_reg_alpha}, ${random_reg_lambda}" > parametri.txt
+  echo "${path}, ${random_max_depth}, ${random_learning_rate}, ${random_n_estimators}, ${random_subsample}, ${random_colsample_bytree}, ${random_min_child_weight}, ${random_gamma}, ${random_reg_alpha}, ${random_reg_lambda}" >> parametri.txt
   
-  condor_submit -name ettore "${path}/submit_Cat_A.condor"
-  condor_submit -name ettore "${path}/submit_Cat_B.condor"
-  condor_submit -name ettore "${path}/submit_Cat_C.condor"
+  #condor_submit -name ettore "${path}/submit_Cat_A.condor"
+  #condor_submit -name ettore "${path}/submit_Cat_B.condor"
+  #condor_submit -name ettore "${path}/submit_Cat_C.condor"
 
   rm config_tau3mu.json
   
