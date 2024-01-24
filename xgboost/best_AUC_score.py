@@ -64,7 +64,7 @@ def draw_category(names, category, type="all", sel = "max", weights = True):
     ax.set_yscale("log")
     ax.set_title("ROC curves")
     ax.legend()
-    fig.set_tight_layout(True)
+    #fig.set_tight_layout(True)
     fig.savefig(out_path +"Category_"+category+"_type_"+type+"_sel_"+sel+"-roc_"+ names[0].split('-')[0]+".pdf")
 
 
