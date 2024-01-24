@@ -442,3 +442,4 @@ class ModelHandler:
 
         roc_df = pd.DataFrame({'FPR_test': fpr_test, 'TPR_test': tpr_test, 'AUC_test':auc_test, 'FPR_train': fpr_train, 'TPR_train': tpr_train, 'AUC_train':auc_train, 'FPR_test_w': fpr_test_w, 'TPR_test_w': tpr_test_w, 'AUC_test_w': weighted_auc_test, 'FPR_train_w': fpr_train_w, 'TPR_train_w': tpr_train_w, 'AUC_train_w': weighted_auc_train})
         roc_df.to_csv("%s/%s-validation-roc.csv" % (self.output_path, model_name), index=False)
+        del roc_df
