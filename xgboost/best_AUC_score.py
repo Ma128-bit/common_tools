@@ -57,7 +57,7 @@ def draw_category(names, category, type="all", sel = "max", weights = True):
     ax.set_title("ROC curves")
     ax.legend()
     fig.set_tight_layout(True)
-    fig.savefig(out_path +"Category_"+category+"_type"+type+"_sel_"+sel+"-roc_"+ names[0] +"_"+ names[len(names)-1]+".pdf")
+    fig.savefig(out_path +"Category_"+category+"_type_"+type+"_sel_"+sel+"-roc_"+ names[0] +"_"+ names[len(names)-1]+".pdf")
 
 
 if __name__ == "__main__":
