@@ -17,28 +17,28 @@ for i in {0..7}; do
   random_max_depth=${max_depth[$random_I_max_depth]}
   
   random_I_learning_rate=$((RANDOM % 4))
-  random_learning_rate=${max_depth[$random_I_learning_rate]}
+  random_learning_rate=${learning_rate[$random_I_learning_rate]}
   
   random_I_n_estimators=$((RANDOM % 3))
-  random_n_estimators=${max_depth[$random_I_n_estimators]}
+  random_n_estimators=${n_estimators[$random_I_n_estimators]}
   
   random_I_subsample=$((RANDOM % 3))
-  random_subsample=${max_depth[$random_I_subsample]}
+  random_subsample=${subsample[$random_I_subsample]}
 
   random_I_colsample_bytree=$((RANDOM % 3))
-  random_colsample_bytree=${max_depth[$random_I_colsample_bytree]}
+  random_colsample_bytree=${colsample_bytree[$random_I_colsample_bytree]}
 
   random_I_min_child_weight=$((RANDOM % 4))
-  random_min_child_weight=${max_depth[$random_I_min_child_weight]}
+  random_min_child_weight=${min_child_weight[$random_I_min_child_weight]}
 
   random_I_gamma=$((RANDOM % 4))
-  random_gamma=${max_depth[$random_I_gamma]}
+  random_gamma=${gamma[$random_I_gamma]}
 
   random_I_reg_alpha=$((RANDOM % 4))
-  random_reg_alpha=${max_depth[$random_I_reg_alpha]}
+  random_reg_alpha=${reg_alpha[$random_I_reg_alpha]}
 
   random_I_reg_lambda=$((RANDOM % 4))
-  random_reg_lambda=${max_depth[$random_I_reg_lambda]}
+  random_reg_lambda=${reg_lambda[$random_I_reg_lambda]}
 
 
   echo "Elemento casuale: ${random_max_depth}, ${random_learning_rate}, ${random_n_estimators}, ${random_subsample}, ${random_colsample_bytree}, ${random_min_child_weight}, ${random_gamma}, ${random_reg_alpha}, ${random_reg_lambda}"
