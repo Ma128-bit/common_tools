@@ -51,6 +51,13 @@ for i in {0..0}; do
   sed -i "s#reg_alpha_val#${random_reg_alpha}#g" ./config_tau3mu.json
   sed -i "s#reg_lambda_val#${random_reg_lambda}#g" ./config_tau3mu.json
 
+  output=$(source prepare_condor.sh config_tau3mu.json "Cat_A Cat_B Cat_C")
+  string=$(echo "$output" | grep "Completed successfully" -B 1 | head -n 1)
+  path=$(echo $string | grep -o 'results/BDT/[^ ]*')
+
+  condor_submit -name ettore "${path}/submit_Cat_A.condor"
+  condor_submit -name ettore "${path}/submit_Cat_B.condor"
+  condor_submit -name ettore "${path}/submit_Cat_C.condor"
   
   echo "Elemento casuale: ${random_max_depth}, ${random_learning_rate}, ${random_n_estimators}, ${random_subsample}, ${random_colsample_bytree}, ${random_min_child_weight}, ${random_gamma}, ${random_reg_alpha}, ${random_reg_lambda}"
   done
