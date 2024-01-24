@@ -57,6 +57,8 @@ for i in {0..30}; do
   string=$(echo "$output" | grep "Completed successfully" -B 1 | head -n 1)
   path=$(echo $string | grep -o 'results/BDT/[^ ]*')
 
+  echo "submit ${path}"
+
   condor_submit -name ettore "${path}/submit_Cat_A.condor"
   condor_submit -name ettore "${path}/submit_Cat_B.condor"
   condor_submit -name ettore "${path}/submit_Cat_C.condor"
