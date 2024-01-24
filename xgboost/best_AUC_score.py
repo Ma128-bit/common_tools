@@ -112,9 +112,10 @@ def histo_AMS(names, category, type="all", weights = True):
         auc_train.append(vector[0])
         
     plt.bar(names, auc_test)
-    ax.set_xlabel("File")
+    plt.xticks(rotation='vertical')
+    #ax.set_xlabel("File")
     ax.set_ylabel("AUC")
-    ax.set_ylim([0.8, 1])
+    ax.set_ylim([0.875, 0.95])
     #ax.set_yscale("log")
     ax.set_title("ROC curves")
     #ax.legend()
