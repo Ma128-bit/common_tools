@@ -4,7 +4,7 @@ n_splits = 5
 out_path = "results/BDT/"
 
 def best_AUC_in_category(name, category, ax, sel = "max", weights = True):
-    if weights = True:
+    if weights == True:
         w = "-w"
         w2 = "_w"
         w3 = "weighted_"
