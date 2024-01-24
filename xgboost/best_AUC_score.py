@@ -11,7 +11,7 @@ def best_AUC_in_category(name, category, ax, type="all", sel = "max", weights = 
     elif category=="B":
         trs_test = 0.904
     else:
-        trs_test = 0.932
+        trs_test = 0.930
     if weights == True:
         w = "-w"
         w2 = "_w"
