@@ -42,7 +42,7 @@ def draw_category(names, category, sel = "max", weights = True):
     fig, ax = plt.subplots()
     plt.grid(which='both', axis='both')
     for name in names:
-        best_AUC_in_category(name, category, ax, sel, weights):
+        best_AUC_in_category(name, category, ax, sel, weights)
     ax.set_xlabel("bkg eff")
     ax.set_ylabel("sig eff")
     ax.set_xlim([self.roc_bkg_min, self.roc_bkg_max])
