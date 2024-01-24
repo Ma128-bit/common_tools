@@ -6,6 +6,12 @@ out_path = "results/ROCurvs/"
 in_path = "results/BDT/"
 
 def best_AUC_in_category(name, category, ax, type="all", sel = "max", weights = True):
+    if category=="A":
+        trs_test = 0.915
+    elif category=="A":
+        trs_test = 0.904
+    else:
+        trs_test = 0.932
     if weights == True:
         w = "-w"
         w2 = "_w"
@@ -37,11 +43,11 @@ def best_AUC_in_category(name, category, ax, type="all", sel = "max", weights = 
             tpr_train = loaded_data["tpr_train"+w2]
         del loaded_data
 
-    if type == "train":
+    if type == "train" and auc_test>trs_test:
         ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
-    elif type == "test":
+    elif type == "test" and auc_test>trs_test:
         ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
-    else:
+    elif auc_test>trs_test:
         ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
         ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
 
@@ -57,7 +63,7 @@ def draw_category(names, category, type="all", sel = "max", weights = True):
     ax.set_title("ROC curves")
     ax.legend()
     fig.set_tight_layout(True)
-    fig.savefig(out_path +"Category_"+category+"_type_"+type+"_sel_"+sel+"-roc_"+ names[0] +"_"+ names[len(names)-1]+".pdf")
+    fig.savefig(out_path +"Category_"+category+"_type_"+type+"_sel_"+sel+"-roc_"+ names[0].split('_')[0]+".pdf")
 
 
 if __name__ == "__main__":
