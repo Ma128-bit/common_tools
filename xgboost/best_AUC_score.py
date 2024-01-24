@@ -117,7 +117,7 @@ def histo_AMS(names, category, type="test", weights = True):
         vector = best_AUC_in_category(name, category, weights)
         auc_test.append(vector[index])
         #auc_train.append(vector[0])
-    colori = ['red' if valore > max(auc_test)-(max(auc_test)-min(auc_test))/20 else 'blue' for valore in auc_test]
+    colori = ['orange' if (valore > max(auc_test)-(max(auc_test)-min(auc_test))/20 and valore!=max(auc_test)) else 'red' if valore==max(auc_test) else 'blue' for valore in auc_test]
     plt.bar(names, auc_test, color=colori)
     plt.xticks(rotation='vertical')
     #ax.set_xlabel("File")
