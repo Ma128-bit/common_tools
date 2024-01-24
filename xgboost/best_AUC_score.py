@@ -106,9 +106,7 @@ def histo_AMS(names, category, type="all", weights = True):
     fig, ax = plt.subplots()
     fig.set_size_inches(9, 6)
     plt.subplots_adjust(bottom=0.25)
-    plt.subplots_adjust(top=0.05)
-    plt.subplots_adjust(left=0.05)
-    plt.subplots_adjust(right=0.05)
+    #plt.subplots_adjust(top=0.05)
     #plt.grid(which='both', axis='both')
     auc_test = []
     auc_train = []
