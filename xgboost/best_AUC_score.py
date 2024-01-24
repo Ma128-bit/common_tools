@@ -102,19 +102,22 @@ def draw_category(names, category, type="all", sel = "max", weights = True):
     #fig.set_tight_layout(True)
     fig.savefig(out_path +"Category_"+category+"_type_"+type+"_sel_"+sel+"-roc_"+ names[0].split('-')[0]+".pdf")
 
-def histo_AMS(names, category, type="all", weights = True):
+def histo_AMS(names, category, type="test", weights = True):
     fig, ax = plt.subplots()
     fig.set_size_inches(9, 6)
     plt.subplots_adjust(bottom=0.25)
     #plt.subplots_adjust(top=0.05)
     #plt.grid(which='both', axis='both')
+    index = 1 #test
+    if type=="train":
+        index = 0
     auc_test = []
-    auc_train = []
+    #auc_train = []
     for name in names:
         vector = best_AUC_in_category(name, category, weights)
-        auc_test.append(vector[1])
-        auc_train.append(vector[0])
-    colori = ['red' if valore > max(auc_test)-(max(auc_test)-min(auc_test))/10 else 'blue' for valore in auc_test]
+        auc_test.append(vector[index])
+        #auc_train.append(vector[0])
+    colori = ['red' if valore > max(auc_test)-(max(auc_test)-min(auc_test))/20 else 'blue' for valore in auc_test]
     plt.bar(names, auc_test, color=colori)
     plt.xticks(rotation='vertical')
     #ax.set_xlabel("File")
@@ -132,7 +135,12 @@ if __name__ == "__main__":
     
     list = os.listdir(in_path)
     files = [i for i in list if os.path.isdir(os.path.join(in_path, i)) and "20240124" in i]
-    histo_AMS(files, "A", type="all")
+    histo_AMS(files, "A", type="test")
+    histo_AMS(files, "B", type="test")
+    histo_AMS(files, "C", type="test")
+    histo_AMS(files, "A", type="train")
+    histo_AMS(files, "B", type="train")
+    histo_AMS(files, "C", type="train")
     """
     draw_category(files, "A", type="test", sel ="min")
     draw_category(files, "B", type="test", sel ="min")
