@@ -102,6 +102,8 @@ def draw_category(names, category, type="all", sel = "max", weights = True):
     fig.savefig(out_path +"Category_"+category+"_type_"+type+"_sel_"+sel+"-roc_"+ names[0].split('-')[0]+".pdf")
 
 def histo_AMS(names, category, type="all", weights = True):
+    fig, ax = plt.subplots()
+    #plt.grid(which='both', axis='both')
     auc_test = []
     auc_train = []
     for name in names:
