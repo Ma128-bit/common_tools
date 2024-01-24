@@ -51,7 +51,7 @@ def best_AUC_in_category(name, category, ax, type="all", sel = "max", weights = 
         else:
             ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
             ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
-    elif auc_test>trs_test-0.05 and sel == "min":
+    elif auc_test>trs_test-0.005 and sel == "min":
         if type == "train":
             ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
         elif type == "test":
