@@ -103,7 +103,8 @@ def draw_category(names, category, type="all", sel = "max", weights = True):
 
 def histo_AMS(names, category, type="all", weights = True):
     fig, ax = plt.subplots()
-    fig.set_size_inches(6, 8)
+    fig.set_size_inches(8, 6)
+    plt.subplots_adjust(bottom=0.2)
     #plt.grid(which='both', axis='both')
     auc_test = []
     auc_train = []
