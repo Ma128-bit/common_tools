@@ -2,12 +2,12 @@
 # Usage:
 #    prepare_best_param.sh
 
-declare -a max_depth=(3 5 7 10)
-declare -a learning_rate=(0.01 0.05 0.1 0.3)
-declare -a n_estimators=(200 400 600 800 1000)
+declare -a max_depth=(4 5 7 6)
+declare -a learning_rate=(0.05 0.075 0.1)
+declare -a n_estimators=(500 700 900 1000)
 declare -a subsample=(0.7 0.8 0.9)
 declare -a colsample_bytree=(0.7 0.8 0.9)
-declare -a min_child_weight=(2 5 8 11)
+declare -a min_child_weight=(6 8 10)
 declare -a gamma=(0.01 0.1 0.5 1)
 declare -a reg_alpha=(0.01 0.1 0.5 1)
 declare -a reg_lambda=(0.01 0.1 0.5 1)
@@ -40,8 +40,6 @@ for i in {0..30}; do
   random_I_reg_lambda=$((RANDOM % 4))
   random_reg_lambda=${reg_lambda[$random_I_reg_lambda]}
 
-  echo "Parameters: ${random_max_depth}, ${random_learning_rate}, ${random_n_estimators}, ${random_subsample}, ${random_colsample_bytree}, ${random_min_child_weight}, ${random_gamma}, ${random_reg_alpha}, ${random_reg_lambda}"
-
   cp ./config/config_tau3mu_template.json ./config_tau3mu.json
   sed -i "s#max_depth_val#${random_max_depth}#g" ./config_tau3mu.json
   sed -i "s#learning_rate_val#${random_learning_rate}#g" ./config_tau3mu.json
@@ -58,7 +56,9 @@ for i in {0..30}; do
   path=$(echo $string | grep -o 'results/BDT/[^ ]*')
 
   echo "submit ${path}"
-
+  
+  echo "Parameters ${path}: ${random_max_depth}, ${random_learning_rate}, ${random_n_estimators}, ${random_subsample}, ${random_colsample_bytree}, ${random_min_child_weight}, ${random_gamma}, ${random_reg_alpha}, ${random_reg_lambda}" > parametri.txt
+  
   condor_submit -name ettore "${path}/submit_Cat_A.condor"
   condor_submit -name ettore "${path}/submit_Cat_B.condor"
   condor_submit -name ettore "${path}/submit_Cat_C.condor"
