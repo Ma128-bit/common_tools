@@ -432,10 +432,13 @@ class ModelHandler:
             weighted_auc_train = roc_auc_score(self.y_train, y_pred_train,sample_weight=self.train_weights)
             ax.plot(fpr_test_w, tpr_test_w, label="test AUC (weighted) = {:.6f}".format(weighted_auc_test))
             ax.plot(fpr_train_w, tpr_train_w, label="train AUC (weighted) = {:.6f}".format(weighted_auc_train))
-
+        
         ax.legend()
         fig.set_tight_layout(True)
         #ax.set_yscale("log")
         #ax.set_xscale("log")
         fig.savefig("%s/%s-validation-roc.pdf" % (self.output_path, model_name))
         print("%s/%s-validation-roc.pdf has been saved" % (self.output_path, model_name))
+
+        roc_df = pd.DataFrame({'FPR_test': fpr_test, 'TPR_test': tpr_test, 'AUC_test':auc_test, 'FPR_train': fpr_train, 'TPR_train': tpr_train, 'AUC_train':auc_train, 'FPR_test_w': fpr_test_w, 'TPR_test_w': tpr_test_w, 'AUC_test_w': weighted_auc_test, 'FPR_train_w': fpr_train_w, 'TPR_train_w': tpr_train_w, 'AUC_train_w': weighted_auc_train})
+        roc_df.to_csv("%s/%s-validation-roc.csv" % (self.output_path, model_name), index=False)
