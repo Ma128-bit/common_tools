@@ -16,10 +16,10 @@ for i in {0..60}; do
   random_I_max_depth=$((RANDOM % 4))
   random_max_depth=${max_depth[$random_I_max_depth]}
   
-  random_I_learning_rate=$((RANDOM % 4))
+  random_I_learning_rate=$((RANDOM % 3))
   random_learning_rate=${learning_rate[$random_I_learning_rate]}
   
-  random_I_n_estimators=$((RANDOM % 5))
+  random_I_n_estimators=$((RANDOM % 4))
   random_n_estimators=${n_estimators[$random_I_n_estimators]}
   
   random_I_subsample=$((RANDOM % 3))
@@ -28,7 +28,7 @@ for i in {0..60}; do
   random_I_colsample_bytree=$((RANDOM % 3))
   random_colsample_bytree=${colsample_bytree[$random_I_colsample_bytree]}
 
-  random_I_min_child_weight=$((RANDOM % 4))
+  random_I_min_child_weight=$((RANDOM % 3))
   random_min_child_weight=${min_child_weight[$random_I_min_child_weight]}
 
   random_I_gamma=$((RANDOM % 4))
