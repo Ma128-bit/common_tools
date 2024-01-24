@@ -65,5 +65,6 @@ for i in {0..60}; do
 
   rm config_tau3mu.json
   
+  sleep 1
   done
   
