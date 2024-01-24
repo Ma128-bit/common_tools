@@ -115,7 +115,10 @@ def histo_AMS(names, category, type="test", weights = True):
     #auc_train = []
     for name in names:
         vector = best_AUC_in_category(name, category, weights)
-        auc_test.append(vector[index])
+        if type == "all":
+            auc_test.append(vector[1]/(vector[0]-vector[1]))
+        else:
+            auc_test.append(vector[index])
         #auc_train.append(vector[0])
     colori = ['orange' if (valore > max(auc_test)-(max(auc_test)-min(auc_test))/20 and valore!=max(auc_test)) else 'red' if valore==max(auc_test) else 'blue' for valore in auc_test]
     plt.bar(names, auc_test, color=colori)
@@ -141,6 +144,9 @@ if __name__ == "__main__":
     histo_AMS(files, "A", type="train")
     histo_AMS(files, "B", type="train")
     histo_AMS(files, "C", type="train")
+    histo_AMS(files, "A", type="all")
+    histo_AMS(files, "B", type="all")
+    histo_AMS(files, "C", type="all")
     """
     draw_category(files, "A", type="test", sel ="min")
     draw_category(files, "B", type="test", sel ="min")
