@@ -8,7 +8,7 @@ in_path = "results/BDT/"
 def best_AUC_in_category(name, category, ax, type="all", sel = "max", weights = True):
     if category=="A":
         trs_test = 0.915
-    elif category=="A":
+    elif category=="B":
         trs_test = 0.904
     else:
         trs_test = 0.932
