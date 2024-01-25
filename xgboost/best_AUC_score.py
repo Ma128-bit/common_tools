@@ -61,6 +61,29 @@ def best_ROC_in_category(name, category, ax, type="all", sel = "max", weights = 
             ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
             ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
 
+def all_ROC_in_category(name, category, ax, type="all", sel = "max", weights = True):
+    if weights == True:
+        w = "-w"
+        w2 = "_w"
+        w3 = "weighted_"
+    else:
+        w=""
+        w2=""
+        w3=""
+    file = f"-Category_Cat_{category}-validation-roc"+w+".npz"
+    for i in range(n_splits):
+        file_name = in_path + name +"/" + f"Run2022-Event{i}" + file
+        loaded_data = np.load(file_name)
+        auc_test = loaded_data[w3+"auc_test"]
+        auc_train = loaded_data[w3+"auc_train"]
+        fpr_test = loaded_data["fpr_test"+w2]
+        tpr_test = loaded_data["tpr_test"+w2]
+        fpr_train = loaded_data["fpr_train"+w2]
+        tpr_train = loaded_data["tpr_train"+w2]
+        ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test), color='red')
+        ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train), color='blue')
+        del loaded_data
+
 def best_AUC_in_category(name, category, weights = True):
     if weights == True:
         w = "-w"
