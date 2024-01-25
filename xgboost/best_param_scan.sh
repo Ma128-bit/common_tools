@@ -2,14 +2,14 @@
 # Usage:
 #    prepare_best_param.sh
 
-declare -a max_depth=(4 5 7 6)
-declare -a learning_rate=(0.05 0.075 0.1)
-declare -a n_estimators=(500 700 900 1000)
+declare -a max_depth=(5 6)
+declare -a learning_rate=(0.04 0.05 0.06)
+declare -a n_estimators=(600 700 800)
 declare -a subsample=(0.7 0.8 0.9)
 declare -a colsample_bytree=(0.7 0.8 0.9)
-declare -a min_child_weight=(6 8 10)
+declare -a min_child_weight=(7 8 9)
 declare -a gamma=(0.01 0.1 0.5 1)
-declare -a reg_alpha=(0.01 0.1 0.5 1)
+declare -a reg_alpha=(0.5 1 1.5)
 declare -a reg_lambda=(0.01 0.1 0.5 1)
 
 for i in {0..60}; do
