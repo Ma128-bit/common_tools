@@ -118,7 +118,7 @@ def draw_ROC_in_category(name, category,weights = True):
     ax.set_ylabel("sig eff")
     ax.set_xlim([0.05, 1])
     ax.set_ylim([0.6, 1])
-    ax.set_title("ROC curves")
+    ax.set_title("ROC curves category "+category)
     ax.legend()
     #fig.set_tight_layout(True)
     fig.savefig(out_path +"Category_"+category+"_All-roc_"+ name.split('-')[0]+".pdf")
@@ -173,6 +173,8 @@ if __name__ == "__main__":
     #files = ["20240124-104401", "20240124-122044", "20240124-132322", "20240124-134302", "20240124-134256", "20240124-134305", "20240124-134308", "20240124-134311", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ]
     
     draw_ROC_in_category("20240125-140236", "A", weights = True)
+    draw_ROC_in_category("20240125-140236", "B", weights = True)
+    draw_ROC_in_category("20240125-140236", "C", weights = True)
     """
     list = os.listdir(in_path)
     files = [i for i in list if os.path.isdir(os.path.join(in_path, i)) and "20240125" in i]
