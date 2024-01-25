@@ -118,7 +118,7 @@ def draw_ROC_in_category(name, category,weights = True):
     ax.set_xlabel("bkg eff")
     ax.set_ylabel("sig eff")
     ax.set_xlim([0.4, 1])
-    ax.set_ylim([0.95, 1])
+    ax.set_ylim([0.96, 1])
     ax.set_title("ROC curves category "+category)
     ax.legend()
     #fig.set_tight_layout(True)
