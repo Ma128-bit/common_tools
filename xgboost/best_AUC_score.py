@@ -137,7 +137,7 @@ if __name__ == "__main__":
     #files = ["20240124-104401", "20240124-122044", "20240124-132322", "20240124-134302", "20240124-134256", "20240124-134305", "20240124-134308", "20240124-134311", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ]
     
     list = os.listdir(in_path)
-    files = [i for i in list if os.path.isdir(os.path.join(in_path, i)) and "20240124" in i]
+    files = [i for i in list if os.path.isdir(os.path.join(in_path, i)) and "20240124-18" in i]
     histo_AMS(files, "A", type="test")
     histo_AMS(files, "B", type="test")
     histo_AMS(files, "C", type="test")
