@@ -80,6 +80,7 @@ def all_ROC_in_category(name, category, ax, weights = True):
         tpr_test = loaded_data["tpr_test"+w2]
         fpr_train = loaded_data["fpr_train"+w2]
         tpr_train = loaded_data["tpr_train"+w2]
+        print("category: "+category+f" fold_{i} fpr_test={len(fpr_test)} tpr_test={len(tpr_test)} fpr_train={len(fpr_train)} tpr_train={len(tpr_train)}"+)
         ax.plot(fpr_test, tpr_test, label="test "+f"fold_{i}"+" AUC = {:.6f}".format(auc_test), color='red')
         ax.plot(fpr_train, tpr_train, label="train "+f"fold_{i}"+" AUC = {:.6f}".format(auc_train), color='blue')
         del loaded_data
