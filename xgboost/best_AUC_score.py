@@ -122,7 +122,7 @@ def draw_ROC_in_category(name, category,weights = True):
     ax.set_title("ROC curves")
     ax.legend()
     #fig.set_tight_layout(True)
-    fig.savefig(out_path +"Category_"+category+"_type_"+type+"_All-roc_"+ names[0].split('-')[0]+".pdf")
+    fig.savefig(out_path +"Category_"+category+"_All-roc_"+ names[0].split('-')[0]+".pdf")
     
 def draw_category(names, category, type="all", sel = "max", weights = True):
     fig, ax = plt.subplots()
