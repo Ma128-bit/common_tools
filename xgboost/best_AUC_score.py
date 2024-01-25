@@ -173,7 +173,7 @@ def histo_AMS(names, category, type="test", weights = True):
 if __name__ == "__main__":
     #files = ["20240124-104401", "20240124-122044", "20240124-132322", "20240124-134302", "20240124-134256", "20240124-134305", "20240124-134308", "20240124-134311", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ]
     
-    draw_ROC_in_category("20240125-140236", "A", weights = True):
+    draw_ROC_in_category("20240125-140236", "A", weights = True)
     """
     list = os.listdir(in_path)
     files = [i for i in list if os.path.isdir(os.path.join(in_path, i)) and "20240125" in i]
