@@ -61,7 +61,7 @@ def best_ROC_in_category(name, category, ax, type="all", sel = "max", weights = 
             ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train))
             ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test))
 
-def all_ROC_in_category(name, category, ax, type="all", sel = "max", weights = True):
+def all_ROC_in_category(name, category, ax, weights = True):
     if weights == True:
         w = "-w"
         w2 = "_w"
@@ -110,6 +110,20 @@ def best_AUC_in_category(name, category, weights = True):
 
     return [auc_train_mean, auc_test_mean]
 
+def draw_ROC_in_category(name, category,weights = True):
+    fig, ax = plt.subplots()
+    plt.grid(which='both', axis='both')
+    all_ROC_in_category(name, category, ax, weights)
+    ax.set_xlabel("bkg eff")
+    ax.set_ylabel("sig eff")
+    ax.set_xlim([0.05, 1])
+    ax.set_ylim([0.6, 1])
+    ax.set_yscale("log")
+    ax.set_title("ROC curves")
+    ax.legend()
+    #fig.set_tight_layout(True)
+    fig.savefig(out_path +"Category_"+category+"_type_"+type+"_All-roc_"+ names[0].split('-')[0]+".pdf")
+    
 def draw_category(names, category, type="all", sel = "max", weights = True):
     fig, ax = plt.subplots()
     plt.grid(which='both', axis='both')
@@ -159,6 +173,8 @@ def histo_AMS(names, category, type="test", weights = True):
 if __name__ == "__main__":
     #files = ["20240124-104401", "20240124-122044", "20240124-132322", "20240124-134302", "20240124-134256", "20240124-134305", "20240124-134308", "20240124-134311", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ]
     
+    draw_ROC_in_category("20240125-140236", "A", weights = True):
+    """
     list = os.listdir(in_path)
     files = [i for i in list if os.path.isdir(os.path.join(in_path, i)) and "20240125" in i]
     histo_AMS(files, "A", type="test")
@@ -170,6 +186,7 @@ if __name__ == "__main__":
     histo_AMS(files, "A", type="all")
     histo_AMS(files, "B", type="all")
     histo_AMS(files, "C", type="all")
+    """
     """
     draw_category(files, "A", type="test", sel ="min")
     draw_category(files, "B", type="test", sel ="min")
