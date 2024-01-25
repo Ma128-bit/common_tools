@@ -80,8 +80,8 @@ def all_ROC_in_category(name, category, ax, weights = True):
         tpr_test = loaded_data["tpr_test"+w2]
         fpr_train = loaded_data["fpr_train"+w2]
         tpr_train = loaded_data["tpr_train"+w2]
-        ax.plot(fpr_test, tpr_test, label="test "+name+" AUC = {:.6f}".format(auc_test), color='red')
-        ax.plot(fpr_train, tpr_train, label="train "+name+" AUC = {:.6f}".format(auc_train), color='blue')
+        ax.plot(fpr_test, tpr_test, label="test "+"fold_"+i+" AUC = {:.6f}".format(auc_test), color='red')
+        ax.plot(fpr_train, tpr_train, label="train "+"fold_"+i+" AUC = {:.6f}".format(auc_train), color='blue')
         del loaded_data
 
 def best_AUC_in_category(name, category, weights = True):
@@ -118,7 +118,6 @@ def draw_ROC_in_category(name, category,weights = True):
     ax.set_ylabel("sig eff")
     ax.set_xlim([0.05, 1])
     ax.set_ylim([0.6, 1])
-    ax.set_yscale("log")
     ax.set_title("ROC curves")
     ax.legend()
     #fig.set_tight_layout(True)
