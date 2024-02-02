@@ -25,7 +25,7 @@
         "weight_MC",
         "training_weight",
         "dimu_OS1",
-        "dimu_OS2",
+        "dimu_OS2"
     ],
     "Y_column": "isMC",
     "BDT_0":0,
