@@ -1,0 +1,82 @@
+{
+    "feature_names": [
+        "cLP",
+        "tKink",
+        "segmComp",
+        "fv_nC",
+        "fv_dphi3D",
+        "fv_d3Dsig",
+        "mindca_iso",
+        "trkRel",
+        "d0sig_min",
+        "d0sig_max",
+        "MuonIDeval_Mu1_MuonID",
+        "MuonIDeval_Mu2_MuonID",
+        "MuonIDeval_Mu3_MuonID"
+    ],
+    "other_branches": [
+        "evt",
+        "run",
+        "lumi",
+        "isMC",
+        "tripletMass",
+        "category",
+        "weight",
+        "weight_MC",
+        "training_weight",
+        "dimu_OS1",
+        "dimu_OS2",
+    ],
+    "Y_column": "isMC",
+    "BDT_0":0,
+    "xgb_parameters": [
+        {"objective": "binary:logistic"},
+        {"max_depth": 5},
+        {"learning_rate": 0.02800024985636897},
+        {"n_estimators": 944},
+        {"subsample": 0.7755943750012175},
+        {"colsample_bytree": 0.5929214475053318},
+        {"min_child_weight": 1},
+        {"gamma": 7.058601345954028e-07},
+        {"reg_alpha": 3.686833621563711e-05},
+        {"reg_lambda": 1.9858878284569508e-06},
+        {"early_stopping_rounds": 20},
+        {"eval_metric": "auc"}
+    ],
+    "Cat_A_1": [
+        {"category": ["==", 0]}
+    ],
+    "Cat_A_bkg_2!": [
+        {"tripletMass": ["<", 1.801]},
+        {"tripletMass": [">", 1.753]}
+    ],
+    "Cat_B_1": [
+        {"category": ["==", 1]}
+    ],
+    "Cat_B_bkg_2!": [
+        {"tripletMass": ["<", 1.815]},
+        {"tripletMass": [">", 1.739]}
+    ],
+    "Cat_C_1": [
+        {"category": ["==", 2]}
+    ],
+    "Cat_C_bkg_2!": [
+        {"tripletMass": ["<", 1.827]},
+        {"tripletMass": [">", 1.727]}
+    ],
+    "tree_name": "OutputTree",
+    "output_path": "results/BDT",
+    "event_fraction": 1,
+    "validation_plots": true,
+    "number_of_splits": 5,
+    "do_weight": true,
+    "weight_column": "training_weight",
+    "index_branch": "evt",
+    "prediction_category_lable": "category",
+    "out_tree_name": "OutputTree",
+    "Name": "Run2018",
+    "data_path": "/lustrehome/mbuonsante/Tau_3mu/xgboost/CMSSW_13_0_13/src/xgboost/",
+    "files": [
+        "Files_18/"
+    ]
+}
