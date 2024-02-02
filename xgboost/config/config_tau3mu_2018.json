@@ -37,7 +37,7 @@
         {"subsample": 0.7755943750012175},
         {"colsample_bytree": 0.5929214475053318},
         {"min_child_weight": 5},
-        {"gamma": 7.058601345954028e-07},
+        {"gamma": 0.004041114786529326},
         {"reg_alpha": 3.686833621563711e-05},
         {"reg_lambda": 1.9858878284569508e-06},
         {"early_stopping_rounds": 30},
